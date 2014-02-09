@@ -90,31 +90,23 @@ Development
 -   Authorization: CanCan
 -   Admin: None
 
+delivery is disabled in development.
+
+
+#### Getting Started
 
 
 
-
-
- delivery is disabled in development.
-
-Getting Started
-
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Documentation and Support
+#### Documentation and Support
 
 
 This is the only documentation.
 
 #### Issues
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-Similar Projects
--
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 
 Contributing
 --
@@ -133,7 +125,7 @@ me and I’ll add a note to the README so that others can find your work.
 Credits
 --
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 
 License
 --
