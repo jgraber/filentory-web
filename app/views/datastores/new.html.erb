@@ -1,0 +1,11 @@
+<h2>New Datastore</h2>
+<%= form_for(@datastore) do |f| %>
+<p>
+<%= f.label :name %><br />
+<%= f.text_field :name %>
+</p>
+<p>
+<%= f.label :mediatype %><br />
+<%= f.text_field :mediatype %>
+<%= f.submit %>
+<% end %>
