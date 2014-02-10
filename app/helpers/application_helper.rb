@@ -12,4 +12,11 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def title(*parts)
+    unless parts.empty?
+      content_for :title do
+        (parts << "Filentory").join(" - ")
+      end
+    end
+  end
 end
