@@ -1,5 +1,6 @@
 class DatastoresController < ApplicationController
 	def index
+		@datastores = Datastore.all
 	end
 
 	def new

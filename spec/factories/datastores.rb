@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :datastore do
     name "MyString"
-    type ""
+    mediatype ""
   end
 end

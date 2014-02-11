@@ -1,1 +1,8 @@
 <%= link_to "New Datastore", new_datastore_path %>
+
+<h2>Datastores</h2>
+<ul>
+<% @datastores.each do |datastore| %>
+<li><%= link_to datastore.name, datastore %></li>
+<% end %>
+</ul>
