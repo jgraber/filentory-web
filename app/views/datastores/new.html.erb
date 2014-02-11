@@ -1,26 +1,3 @@
 <h2>New Datastore</h2>
-<%= form_for(@datastore) do |f| %>
 
-<% if @datastore.errors.any? %>
-<div id="error_explanation">
-<h2><%= pluralize(@datastore.errors.count, "error") %>
-	prohibited this datastore from being saved:</h2>
-<ul>
-<% @datastore.errors.full_messages.each do |msg| %>
-	<li><%= msg %></li>
-<% end %>
-</ul>
-</div>
-<% end %>
-
-
-
-<p>
-<%= f.label :name %><br />
-<%= f.text_field :name %>
-</p>
-<p>
-<%= f.label :mediatype %><br />
-<%= f.text_field :mediatype %>
-<%= f.submit %>
-<% end %>
+<%= render "form" %>

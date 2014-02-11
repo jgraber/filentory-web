@@ -22,6 +22,22 @@ class DatastoresController < ApplicationController
 		@datastore = Datastore.find(params[:id])
 	end
 
+	def edit
+		@datastore = Datastore.find(params[:id])
+	end
+
+	def update
+		@datastore = Datastore.find(params[:id])
+		if @datastore.update(datastore_params)
+			flash[:notice] = "Datastore has been updated."
+			redirect_to @datastore
+		else
+			flash[:alert] = "Datastore has not been updated."
+			render "edit"
+		end
+	end
+
+
 
 private
 def datastore_params
