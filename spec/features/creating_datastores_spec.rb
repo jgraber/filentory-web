@@ -10,15 +10,16 @@ feature 'Creating Datastores' do
 		expect(page).to have_content('Datastore has been created.')
 
 		title = "DVD 1 - Datastores - Filentory"
-		#print page.html
 		expect(page).to have_title(title)
-
+		#print page.html # for debug 
 	end
-
-	#scenario "sets the name as the page title" do
-	#	datastore = Datastore.where(name: "DVD 1").first
-	#	expect(page.current_url).to eql(datastore_url(datastore))
-	#	
-	#end
+	
+	scenario "can not create a datastore without a name" do
+		visit '/'
+		click_link 'New Datastore'
+		click_button 'Create Datastore'
+		expect(page).to have_content("Datastore has not been created.")
+		expect(page).to have_content("Name can't be blank")
+	end
 
 end
