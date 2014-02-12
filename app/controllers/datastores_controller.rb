@@ -1,4 +1,7 @@
 class DatastoresController < ApplicationController
+	before_action :set_datastore, only: [:show, :edit, :update, :destroy]
+
+
 	def index
 		@datastores = Datastore.all
 	end
@@ -19,15 +22,12 @@ class DatastoresController < ApplicationController
 	end
 
 	def show
-		@datastore = Datastore.find(params[:id])
 	end
 
 	def edit
-		@datastore = Datastore.find(params[:id])
 	end
 
 	def update
-		@datastore = Datastore.find(params[:id])
 		if @datastore.update(datastore_params)
 			flash[:notice] = "Datastore has been updated."
 			redirect_to @datastore
@@ -37,10 +37,25 @@ class DatastoresController < ApplicationController
 		end
 	end
 
+	def destroy
+		@datastore.destroy
+		
+		flash[:notice] = "Datastore has been destroyed."
+		
+		redirect_to datastores_path
+	end
 
 
-private
-def datastore_params
-	params.require(:datastore).permit(:name, :mediatype)
-end
+	private
+	def datastore_params
+		params.require(:datastore).permit(:name, :mediatype)
+	end
+
+	def set_datastore
+		@datastore = Datastore.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+		flash[:alert] = "The datastore you were looking for could not be found."
+		redirect_to datastores_path
+	end
+
 end
