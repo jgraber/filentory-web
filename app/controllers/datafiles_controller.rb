@@ -1,5 +1,9 @@
 class DatafilesController < ApplicationController
 	before_action :set_datafile, only: [:show, :edit, :update, :destroy]
+	
+	def index
+		@datafiles = Datafile.all
+	end
 
 	def new
 		@datafile = Datafile.new
@@ -20,6 +24,14 @@ class DatafilesController < ApplicationController
 	def show
 	end
 
+	def destroy
+		@datafile.destroy
+		
+		flash[:notice] = "Datafile has been destroyed."
+		
+		redirect_to datafiles_path
+	end
+	
 	private
 	def datafile_params
 		params.require(:datafile).permit(:name, :size, :checksum)
@@ -29,6 +41,6 @@ class DatafilesController < ApplicationController
 		@datafile = Datafile.find(params[:id])
 		rescue ActiveRecord::RecordNotFound
 		flash[:alert] = "The datafile you were looking for could not be found."
-		redirect_to datafile_path
+		redirect_to datafiles_path
 	end
 end

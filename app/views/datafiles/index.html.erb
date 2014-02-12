@@ -1,0 +1,8 @@
+<%= link_to "New File", new_datafile_path %>
+
+<h2>Datafiles</h2>
+<ul>
+<% @datafiles.each do |datafile| %>
+<li><%= link_to datafile.name, datafile %></li>
+<% end %>
+</ul>
