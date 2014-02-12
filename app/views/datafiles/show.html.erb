@@ -1,0 +1,12 @@
+<% title(@datafile.name, "File") %>
+
+<h2><%= @datafile.name %></h2>
+
+
+<%= link_to "Edit Datafile", edit_datafile_path(@datafile) %>
+
+<%= link_to "Delete Datafile",
+	datastore_path(@datafile),
+	method: :delete,
+	data: { confirm: "Are you sure you want to delete this file?"
+} %>

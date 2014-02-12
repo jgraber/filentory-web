@@ -3,5 +3,5 @@ Filentory::Application.routes.draw do
   root "datastores#index"
 
   resources :datastores
-
+  resources :datafiles
 end
