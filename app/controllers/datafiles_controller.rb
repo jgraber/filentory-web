@@ -20,8 +20,20 @@ class DatafilesController < ApplicationController
 		end
 	end
 
-
 	def show
+	end
+
+	def edit
+	end
+
+	def update
+		if @datafile.update(datafile_params)
+			flash[:notice] = "Datafile has been updated."
+			redirect_to @datafile
+		else
+			flash[:alert] = "Datafile has not been updated."
+			render "edit"
+		end
 	end
 
 	def destroy
@@ -31,7 +43,7 @@ class DatafilesController < ApplicationController
 		
 		redirect_to datafiles_path
 	end
-	
+
 	private
 	def datafile_params
 		params.require(:datafile).permit(:name, :size, :checksum)
