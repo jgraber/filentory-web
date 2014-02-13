@@ -17,7 +17,7 @@ class DatastoresController < ApplicationController
 			redirect_to @datastore 
 		else
 			flash[:alert] = "Datastore has not been created."
-			render"new"
+			render "new"
 		end
 	end
 
