@@ -34,6 +34,12 @@ class LocationsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@location.destroy
+		flash[:notice] = "Location has been deleted."
+		redirect_to @datastore
+	end
+
 	private
 	def set_datastore
 		@datastore = Datastore.find(params[:datastore_id])
