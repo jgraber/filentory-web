@@ -21,6 +21,19 @@ class LocationsController < ApplicationController
 	def show
 	end
 
+	def edit
+	end
+
+	def update
+		if @location.update(location_params)
+			flash[:notice] = "Location has been updated."
+			redirect_to [@datastore, @location]
+		else
+			flash[:alert] = "Location has not been updated."
+			render action: "edit"
+		end
+	end
+
 	private
 	def set_datastore
 		@datastore = Datastore.find(params[:datastore_id])
