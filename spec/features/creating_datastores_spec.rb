@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 feature 'Creating Datastores' do
-	scenario "can create a datastore" do
+	let!(:user){ FactoryGirl.create(:user)}
+
+	before do
+		sign_in_as!(user)
 		visit '/'
+	end
+
+	scenario "can create a datastore" do
 		click_link 'New Datastore'
 		fill_in 'Name', with: 'DVD 1'
 		fill_in 'Mediatype', with: 'DVD'
@@ -15,7 +21,6 @@ feature 'Creating Datastores' do
 	end
 	
 	scenario "can not create a datastore without a name" do
-		visit '/'
 		click_link 'New Datastore'
 		click_button 'Create Datastore'
 		expect(page).to have_content("Datastore has not been created.")

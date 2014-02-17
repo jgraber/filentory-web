@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 feature "Deleting datafiles" do
+	let!(:user){ FactoryGirl.create(:user)}
+
+	before do
+		sign_in_as!(user)
+	end
+
 	scenario "Deleting a datafile" do
 		FactoryGirl.create(:datafile, name: "base.txt")
 		
@@ -13,5 +19,5 @@ feature "Deleting datafiles" do
 		visit "/datafiles"
 		
 		expect(page).to have_no_content("base.txt")
-end
+	end
 end

@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 feature "Viewing locations" do
+	let!(:user){ FactoryGirl.create(:user)}
+
 	before do
+		sign_in_as!(user)
 		dvd1 = FactoryGirl.create(:datastore, name: "DVD 1")
 		FactoryGirl.create(:location, 
 				datastore: dvd1, 

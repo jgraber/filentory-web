@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 feature 'Creating Files' do
-	scenario "can create a file" do
+	let!(:user){ FactoryGirl.create(:user)}
+
+	before do
+		sign_in_as!(user)
 		visit '/'
+	end
+
+	scenario "can create a file" do
 		click_link 'New File'
 		fill_in 'Name', with: 'base.txt'
 		fill_in 'Size', with: 1024
@@ -15,7 +21,6 @@ feature 'Creating Files' do
 	end
 	
 	scenario "can not create a file without a name" do
-		visit '/'
 		click_link 'New File'
 		click_button 'Create Datafile'
 		expect(page).to have_content("Datafile has not been created.")

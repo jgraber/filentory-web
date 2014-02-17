@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 feature "Editing Datafiles" do
+	let!(:user){ FactoryGirl.create(:user)}
+
 	before do
+		sign_in_as!(user)
 		FactoryGirl.create(:datafile, name: "base.txt")
 		
 		visit "/datafiles"

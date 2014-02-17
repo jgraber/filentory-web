@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 feature "Editing Datastores" do
+	let!(:user){ FactoryGirl.create(:user)}
+
 	before do
 		FactoryGirl.create(:datastore, name: "DVD 1")
 		
+		sign_in_as!(user)
 		visit "/"
 		click_link "DVD 1"
 		click_link "Edit Datastore"
