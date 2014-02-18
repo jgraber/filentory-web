@@ -235,6 +235,7 @@ DEPENDENCIES
   jquery-rails
   pry-rails (~> 0.3.2)
   quiet_assets
+  rack-test
   rails (= 4.0.2)
   rails_layout
   rb-fchange

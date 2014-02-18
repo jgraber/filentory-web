@@ -1,0 +1,67 @@
+{
+  "^o":"Datastore",
+  "name":"testrun",
+  "files":[
+    [
+      {
+        "^o":"FileEntry",
+        "path":".",
+        "name":"fileA.txt",
+        "last_modified":"2014-01-26T20:22:10+01:00",
+        "size":15,
+        "checksum":"bf65dac6b214f362fc6a8b151c9f44668fed8460bbe8204f215e82332a295939"
+      },
+      {
+        "^o":"FileEntry",
+        "path":"folder",
+        "name":"fileB.txt",
+        "last_modified":"2014-01-26T20:22:10+01:00",
+        "size":15,
+        "checksum":"37defb82a846febcb63653620b4bc2e37bce7cb7f002ea75c73838c160a64cbb"
+      },
+      {
+        "^o":"FileEntry",
+        "path":".",
+        "name":"image_with_exif_and_xmp_infos.jpg",
+        "last_modified":"2014-01-26T20:22:10+01:00",
+        "size":18854,
+        "checksum":"044d983d0b9c14bd8acaf13ba36dfbc08bcc8b9eb35174ae6489fa8876332ce0",
+        "metadata":{
+          "exif.model":"Canon PowerShot S110",
+          "exif.artist":"Johnny Graber",
+          "exif.date_time":"2013-11-02T18:10:43+00:00",
+          "exif.date_time_original":"2013-11-02T18:10:43+00:00",
+          "exif.width":50,
+          "exif.height":38
+        }
+      },
+      {
+        "^o":"FileEntry",
+        "path":".",
+        "name":"video.mov",
+        "last_modified":"2014-01-26T20:22:10+01:00",
+        "size":205203,
+        "checksum":"b63b2cae6c6a98a3bde6f584577113edbf8e49ff22c5528dbc9cc08f37a1b1f5",
+        "metadata":{
+          "audio_bitrate":61,
+          "audio_channels":1,
+          "audio_codec":"aac",
+          "audio_sample_rate":44100,
+          "audio_stream":"aac, 44100 Hz, mono, s16, 61 kb/s",
+          "bitrate":752,
+          "colorspace":"yuv420p",
+          "duration":2.18,
+          "resolution":"568x320",
+          "video_bitrate":683,
+          "video_codec":"h264 (Baseline)",
+          "video_stream":"h264 (Baseline), yuv420p, 568x320, 683 kb/s, 24 fps, 24 tbr, 600 tbn, 1200 tbc",
+          "width":568,
+          "height":320,
+          "valid?":true,
+          "creation_time":"2014-01-09T14:21:30+00:00"
+        }
+      }
+    ]
+  ],
+  "mediatype":"DVD"
+}

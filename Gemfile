@@ -31,6 +31,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem "rack-test", require: "rack/test"
 end
 group :test do
   gem 'capybara'
