@@ -1,0 +1,24 @@
+<%= form_for [@datafile, @metadata] do |f| %>
+	<% if @metadata.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@metadata.errors.count, "error") %>
+			prohibited this metadata from being saved:</h2>
+
+			<ul>
+			<% @metadata.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+		<% end %>
+
+	<p>
+		<%= f.label :key %><br />
+		<%= f.text_field :key %>
+	</p>
+	<p>
+		<%= f.label :value %><br />
+		<%= f.text_field :value %>
+	</p>
+	<%= f.submit %>
+<% end %>

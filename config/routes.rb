@@ -6,7 +6,9 @@ Filentory::Application.routes.draw do
   	resources :locations
   end
 
-  resources :datafiles
+  resources :datafiles do
+    resources :metadata
+  end
 
   namespace :api do
 		namespace :v1 do

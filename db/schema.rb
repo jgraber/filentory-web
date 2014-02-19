@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217195829) do
+ActiveRecord::Schema.define(version: 20140218193211) do
 
   create_table "datafiles", force: true do |t|
     t.string   "name"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20140217195829) do
 
   add_index "locations", ["datafile_id"], name: "index_locations_on_datafile_id"
   add_index "locations", ["datastore_id"], name: "index_locations_on_datastore_id"
+
+  create_table "metadata", force: true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.integer  "datafile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "metadata", ["datafile_id"], name: "index_metadata_on_datafile_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"

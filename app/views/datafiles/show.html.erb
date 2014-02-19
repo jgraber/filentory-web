@@ -10,3 +10,13 @@
 	method: :delete,
 	data: { confirm: "Are you sure you want to delete this file?"
 } %>
+
+<%= link_to "Add Metadata", new_datafile_metadata_path(@datafile) %>
+<ul id='locations'>
+	<% @datafile.metadata.each do |metadata| %>
+	<li>
+		#<%= metadata.id %> -
+		<%= link_to metadata, [@datafile, metadata] %>
+		</li>
+	<% end %>
+</ul>
