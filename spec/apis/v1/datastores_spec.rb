@@ -65,8 +65,24 @@ describe "/api/v1/datastores", :type => :api do
 			get "/api/v1/datastores/#{ds.id}.json", :token => token, :user_email => user.email
 			
 			store_response = JSON.parse(last_response.body)
-			first_file_name = store_response["locations"][0]["name"]
-			first_file_name.should eql("fileA.txt")
+			first_location_name = store_response["locations"][0]["name"]
+			first_location_name.should eql("fileA.txt")
+
+			#puts store_response["locations"]
+			#puts "-----"
+			#puts JSON.parse(store_response["files"])[0][0]["name"]
+			#puts "-----"
+			#puts JSON.parse(store_response["files"])[0]
+
+			files = JSON.parse(store_response["files"])
+			first_file = files[0][0]
+			first_file["name"].should eql("fileA.txt")
+
+			last_file = files[3][0]
+			last_file["name"].should eql("video.mov")
+
+			files[3][1]["key"].should eql("audio_bitrate")
+
 		end
 	end
 
