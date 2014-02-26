@@ -12,11 +12,21 @@
 } %>
 
 <%= link_to "Add Metadata", new_datafile_metadata_path(@datafile) %>
-<ul id='locations'>
+<ul id='metadata'>
 	<% @datafile.metadata.each do |metadata| %>
 	<li>
 		#<%= metadata.id %> -
 		<%= link_to metadata, [@datafile, metadata] %>
+		</li>
+	<% end %>
+</ul>
+
+
+<ul id='location'>
+	<% @datafile.locations.each do |location| %>
+	<li>
+		#<%= location.datastore.name %>:
+		<%= link_to location.path_name, [location.datastore, location] %>
 		</li>
 	<% end %>
 </ul>
