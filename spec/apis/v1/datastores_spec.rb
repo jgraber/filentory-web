@@ -2,88 +2,87 @@ require "spec_helper"
 require "rack/test"
 
 describe "/api/v1/datastores", :type => :api do 
-	let!(:user) { FactoryGirl.create(:user) }
-	let!(:token) { user.authentication_token }
-	let!(:datastore) { FactoryGirl.create(:datastore) }
-	let(:url) { "/api/v1/datastores" }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:token) { user.authentication_token }
+  let!(:datastore) { FactoryGirl.create(:datastore) }
+  let(:url) { "/api/v1/datastores" }
 
-	context "projects viewable by this user" do
-		it "json" do 
-			get "#{url}.json", :token => token, :user_email => user.email
-			
-			datastores_json = Datastore.all.to_json
-			last_response.body.should eql(datastores_json)
-			last_response.status.should eql(200)
-			
-			datastores = JSON.parse(last_response.body)
-			
-			datastores.any? do |ds|
-				ds["name"] == datastore.name
-			end.should be_true
-		end
-	end
+  context "projects viewable by this user" do
+    it "json" do 
+      get "#{url}.json", :token => token, :user_email => user.email
+      
+      datastores_json = Datastore.all.to_json
+      last_response.body.should eql(datastores_json)
+      last_response.status.should eql(200)
+      
+      datastores = JSON.parse(last_response.body)
+      
+      datastores.any? do |ds|
+        ds["name"] == datastore.name
+      end.should be_true
+    end
+  end
 
-	context "show error when credentials are missing" do
-		it "misses email and token" do
-			get "#{url}.json"
+  context "show error when credentials are missing" do
+    it "misses email and token" do
+      get "#{url}.json"
 
-			error = "{\"error\":\"You need to sign in or sign up before continuing.\"}"
-			last_response.body.should eql(error)
-			last_response.status.should eql(401)
-		end
-	end
+      error = "{\"error\":\"You need to sign in or sign up before continuing.\"}"
+      last_response.body.should eql(error)
+      last_response.status.should eql(401)
+    end
+  end
 
-	context "creating a project" do
-		let(:doc) { IO.read(Rails.root.join("spec", "fixtures", "files", "cli_full.json")) }
+  context "creating a project" do
+    let(:doc) { IO.read(Rails.root.join("spec", "fixtures", "files", "cli_full.json")) }
 
-		it "successful JSON" do
-			post "#{url}.json", :token => token,
-													:user_email => user.email,
-													:datastore => {
-														:name => "Inspector"
-													}
+    it "successful JSON" do
+      post "#{url}.json", :token => token,
+                          :user_email => user.email,
+                          :datastore => {
+                            :name => "Inspector"
+                          }
 
-			ds = Datastore.find_by_name!("Inspector")
-			route = "/api/v1/datastores/#{ds.id}"
-			last_response.status.should eql(201)
+      ds = Datastore.find_by_name!("Inspector")
+      route = "/api/v1/datastores/#{ds.id}"
+      last_response.status.should eql(201)
 
-			last_response.headers["Location"].should eql(route)
-			last_response.body.should eql(ds.to_json)
-		end
+      last_response.headers["Location"].should eql(route)
+      last_response.body.should eql(ds.to_json)
+    end
 
-		it "can use filentory-cli output" do
-			post "#{url}.json", :token => token,
-													:user_email => user.email,
-													:data => doc
-			ds = Datastore.find_by_name!("testrun")
-			route = "/api/v1/datastores/#{ds.id}"
-			last_response.status.should eql(201)
+    it "can use filentory-cli output" do
+      post "#{url}.json", :token => token,
+                          :user_email => user.email,
+                          :data => doc
+      ds = Datastore.find_by_name!("testrun")
+      route = "/api/v1/datastores/#{ds.id}"
+      last_response.status.should eql(201)
 
-			last_response.headers["Location"].should eql(route)
-			last_response.body.should eql(ds.to_json)
+      last_response.headers["Location"].should eql(route)
+      last_response.body.should eql(ds.to_json)
 
-			get "/api/v1/datastores/#{ds.id}.json", :token => token, :user_email => user.email
-			
-			store_response = JSON.parse(last_response.body)
-			first_location_name = store_response["locations"][0]["name"]
-			first_location_name.should eql("fileA.txt")
+      get "/api/v1/datastores/#{ds.id}.json", :token => token, :user_email => user.email
+      
+      store_response = JSON.parse(last_response.body)
+      first_location_name = store_response["locations"][0]["name"]
+      first_location_name.should eql("fileA.txt")
 
-			#puts store_response["locations"]
-			#puts "-----"
-			#puts JSON.parse(store_response["files"])[0][0]["name"]
-			#puts "-----"
-			#puts JSON.parse(store_response["files"])[0]
+      #puts store_response["locations"]
+      #puts "-----"
+      #puts JSON.parse(store_response["files"])[0][0]["name"]
+      #puts "-----"
+      #puts JSON.parse(store_response["files"])[0]
 
-			files = JSON.parse(store_response["files"])
-			first_file = files[0][0]
-			first_file["name"].should eql("fileA.txt")
+      files = JSON.parse(store_response["files"])
+      first_file = files[0][0]
+      first_file["name"].should eql("fileA.txt")
 
-			last_file = files[3][0]
-			last_file["name"].should eql("video.mov")
+      last_file = files[3][0]
+      last_file["name"].should eql("video.mov")
 
-			files[3][1]["key"].should eql("audio_bitrate")
-
-		end
-	end
+      files[3][1]["key"].should eql("audio_bitrate")
+    end
+  end
 
 end

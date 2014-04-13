@@ -6,27 +6,27 @@
 <%= link_to "Edit Datafile", edit_datafile_path(@datafile) %>
 
 <%= link_to "Delete Datafile",
-	datafile_path(@datafile),
-	method: :delete,
-	data: { confirm: "Are you sure you want to delete this file?"
+  datafile_path(@datafile),
+  method: :delete,
+  data: { confirm: "Are you sure you want to delete this file?"
 } %>
 
 <%= link_to "Add Metadata", new_datafile_metadata_path(@datafile) %>
 <ul id='metadata'>
-	<% @datafile.metadata.each do |metadata| %>
-	<li>
-		#<%= metadata.id %> -
-		<%= link_to metadata, [@datafile, metadata] %>
-		</li>
-	<% end %>
+  <% @datafile.metadata.each do |metadata| %>
+  <li>
+    #<%= metadata.id %> -
+    <%= link_to metadata, [@datafile, metadata] %>
+    </li>
+  <% end %>
 </ul>
 
 
 <ul id='location'>
-	<% @datafile.locations.each do |location| %>
-	<li>
-		#<%= location.datastore.name %>:
-		<%= link_to location.path_name, [location.datastore, location] %>
-		</li>
-	<% end %>
+  <% @datafile.locations.each do |location| %>
+  <li>
+    #<%= location.datastore.name %>:
+    <%= link_to location.path_name, [location.datastore, location] %>
+    </li>
+  <% end %>
 </ul>

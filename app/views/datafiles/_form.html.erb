@@ -1,28 +1,28 @@
 <%= form_for(@datafile) do |f| %>
-	<% if @datafile.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@datafile.errors.count, "error") %>
-			prohibited this file from being saved:</h2>
+  <% if @datafile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@datafile.errors.count, "error") %>
+      prohibited this file from being saved:</h2>
 
-			<ul>
-			<% @datafile.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-			</ul>
-		</div>
-		<% end %>
+      <ul>
+      <% @datafile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
 
-	<p>
-		<%= f.label :name %><br />
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.label :size %><br />
-		<%= f.text_field :size %>
-	</p>
-		<p>
-		<%= f.label :checksum %><br />
-		<%= f.text_field :checksum %>
-	</p>
-	<%= f.submit %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </p>
+    <p>
+    <%= f.label :checksum %><br />
+    <%= f.text_field :checksum %>
+  </p>
+  <%= f.submit %>
 <% end %>

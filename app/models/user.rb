@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	before_save :ensure_authentication_token
+  before_save :ensure_authentication_token
  
   def ensure_authentication_token
     if authentication_token.blank?
