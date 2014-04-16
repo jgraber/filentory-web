@@ -27,6 +27,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem "pry-rails", "~> 0.3.2"
+  gem 'rack-mini-profiler'
 end
 group :development, :test do
   gem 'factory_girl_rails'
