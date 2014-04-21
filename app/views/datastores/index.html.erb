@@ -1,9 +1,21 @@
-<%= link_to "New Datastore", new_datastore_path %>
-<%= link_to "New File", new_datafile_path %>
+<h1>Datastores</h1>
 
-<h2>Datastores</h2>
-<ul>
-  <% @datastores.each do |datastore| %>
-    <li><%= link_to datastore.name, datastore %></li>
-  <% end %>
-</ul>
+<div class="col-md-8 text-right">
+  <%= link_to "New Datastore", new_datastore_path, class: "btn btn-info" %>
+  <%= link_to "New File", new_datafile_path, class: "btn btn-info" %>
+</div>
+
+<div class="col-md-8">
+<table  class="table table-striped">
+  <thead>
+    <tr><th>Id</th><th>Name</th><th>Type</th><th>Size</th><th># Files</th></tr>
+  </thead>
+  <tbody>
+    <% @datastores.each do |ds| %>
+    <tr>
+      <td><%= ds.id %></td><td><%= link_to ds.name, ds %></td><td><%= ds.mediatype %></td><td></td><td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
