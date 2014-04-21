@@ -21,8 +21,6 @@ feature "Viewing datastores" do
 
     visit '/'
     find('tr', text: ds1.name).should have_content("DVD")
-
-    find('tr', text: ds2.id).should have_content("CD")
-    
+    find('tr', text: ds2.id).should have_content("CD")    
   end
 end

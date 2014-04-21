@@ -5,6 +5,6 @@ class Location < ActiveRecord::Base
   belongs_to :datafile
 
   def path_name
-    "#{path}#{name}"
+    "#{path}/#{name}"
   end
 end

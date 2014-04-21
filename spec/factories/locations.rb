@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :location do
-    path "MyString"
-    name "MyString"
+    path "MyPath"
+    name "MyFile"
     last_modified "2014-02-12 21:26:14"
     datastore nil
     datafile nil

@@ -1,22 +1,36 @@
 <% title(@datastore.name, "Datastores") %>
 
-<h2><%= @datastore.name %></h2>
+<h1>Datastore: <%= @datastore.name %></h1>
 
-
-<%= link_to "Edit Datastore", edit_datastore_path(@datastore) %>
+<div class="col-md-8 text-right">
+<%= link_to "Edit Datastore", edit_datastore_path(@datastore), class: "btn btn-info" %>
 
 <%= link_to "Delete Datastore",
   datastore_path(@datastore),
   method: :delete,
-  data: { confirm: "Are you sure you want to delete this datastore?"
-} %>
-<%= link_to "New Location", new_datastore_location_path(@datastore) %>
+  data: { confirm: "Are you sure you want to delete this datastore?" }, class: "btn btn-danger"
+%>
 
-<ul id='locations'>
-  <% @datastore.locations.each do |location| %>
-  <li>
-    #<%= location.id %> -
-    <%= link_to location.path_name, [@datastore, location] %>
-    </li>
-  <% end %>
-</ul>
+<%= link_to "New Location", new_datastore_location_path(@datastore), class: "btn btn-success" %>
+</div>
+
+
+<div class="col-md-8">
+<table  class="table table-striped">
+  <thead>
+    <tr><th>Path</th><th>Name</th><th>Last Modified</th><th>Datafile Id</th></tr>
+  </thead>
+  <tbody>
+    <% @ordered_locations.each do |location| %>
+    <tr>
+      <td><%= link_to location.path, [@datastore, location] %></td><td><%= link_to location.name, [@datastore, location] %></td><td><%= location.last_modified %></td><td>
+     <%= 
+        if(!location.datafile.nil?)
+          link_to llocation.datafile_id, location.datafile
+        end
+        %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

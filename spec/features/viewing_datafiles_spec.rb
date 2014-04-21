@@ -18,13 +18,13 @@ feature "Viewing datafiles" do
     dvd1 = FactoryGirl.create(:datastore, name: "DVD 1")
     FactoryGirl.create(:location, 
         datastore: dvd1, 
-        path: "/folder/", 
+        path: "folder", 
         name: "fileA.txt",
         last_modified: "2014-02-16 12:00:00",
         datafile: @datafile)
 
     click_link 'base.txt'
-    expect(page).to have_content("/folder/fileA.txt")
+    expect(page).to have_content("folder/fileA.txt")
     expect(page).to have_content("DVD 1")
   end
 end

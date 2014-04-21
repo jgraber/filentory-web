@@ -9,7 +9,7 @@ feature "Deleting Locations" do
     sign_in_as!(user)
     visit "/"
     click_link datastore.name
-    click_link location.path_name
+    click_link location.name
   end
 
 

@@ -23,6 +23,7 @@ class DatastoresController < ApplicationController
   end
 
   def show
+    @ordered_locations = @datastore.locations.order('path', 'name')
   end
 
   def edit
