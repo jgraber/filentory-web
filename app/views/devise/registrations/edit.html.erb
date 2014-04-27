@@ -30,6 +30,13 @@
     <%= f.submit 'Update', :class => 'button right' %>
   <% end %>
 </div>
+
+<div class="authform">
+<h3>Your API Key</h3>
+<p>This is your API key to log on with a tool like filentory-cli:</p>
+<div class="form-control"><%= resource.authentication_token%></div>
+</div>
+
 <div class="authform">
 <h3>Cancel Account</h3>
 <p>Unhappy? We'll be sad to see you go.</p>

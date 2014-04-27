@@ -5,5 +5,6 @@ FactoryGirl.define do
     email "JG@JGraber.ch"
     name "Johnny"
     password "12345678abc"
+    authentication_token "123456_abc"
   end
 end
