@@ -26,7 +26,7 @@
       <td><%= link_to location.path, [@datastore, location] %></td><td><%= link_to location.name, [@datastore, location] %></td><td><%= location.last_modified %></td><td>
      <%= 
         if(!location.datafile.nil?)
-          link_to llocation.datafile_id, location.datafile
+          link_to location.datafile_id, location.datafile
         end
         %></td>
     </tr>
