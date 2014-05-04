@@ -1,32 +1,50 @@
 <% title(@datafile.name, "File") %>
 
-<h2><%= @datafile.name %></h2>
+<h2>Datafile: <%= @datafile.name %></h2>
 
-
-<%= link_to "Edit Datafile", edit_datafile_path(@datafile) %>
+<div class="col-md-12 text-right">
+<%= link_to "Edit Datafile", edit_datafile_path(@datafile), class: "btn btn-info" %>
 
 <%= link_to "Delete Datafile",
   datafile_path(@datafile),
   method: :delete,
-  data: { confirm: "Are you sure you want to delete this file?"
-} %>
+  data: { confirm: "Are you sure you want to delete this file?"}, class: "btn btn-danger"
+%>
 
-<%= link_to "Add Metadata", new_datafile_metadata_path(@datafile) %>
-<ul id='metadata'>
-  <% @datafile.metadata.each do |metadata| %>
-  <li>
-    #<%= metadata.id %> -
-    <%= link_to metadata, [@datafile, metadata] %>
-    </li>
-  <% end %>
-</ul>
+<%= link_to "Add Metadata", new_datafile_metadata_path(@datafile), class: "btn btn-success" %>
+</div>
+
+<div class="row">
+<div class="col-md-6">
+<h2>Locations</h2>
+<table  class="table table-striped">
+  <thead>
+    <tr><th>Datastore</th><th>Filename</th></tr>
+  </thead>
+  <tbody>
+    <% @datafile.locations.each do |location| %>
+    <tr>
+      <td>#<%= location.datastore.name %></td><td><%= link_to location.path_name, [location.datastore, location] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
 
 
-<ul id='location'>
-  <% @datafile.locations.each do |location| %>
-  <li>
-    #<%= location.datastore.name %>:
-    <%= link_to location.path_name, [location.datastore, location] %>
-    </li>
-  <% end %>
-</ul>
+<div class="col-md-6">
+<h2>Metadata</h2>
+<table  class="table table-striped">
+  <thead>
+    <tr><th>Id</th><th>Value</th></tr>
+  </thead>
+  <tbody>
+    <% @datafile.metadata.each do |metadata| %>
+    <tr>
+      <td><%= metadata.id %></td><td><%= link_to metadata, [@datafile, metadata] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

@@ -27,4 +27,14 @@ feature "Viewing datafiles" do
     expect(page).to have_content("folder/fileA.txt")
     expect(page).to have_content("DVD 1")
   end
+
+  scenario "Show datafiles as table" do
+    df1 = FactoryGirl.create(:datafile, name: "File 1b", checksum: "12556356")    
+    df2 = FactoryGirl.create(:datafile, name: "File 2", checksum: "4146541315", size: 1256)
+
+    visit '/datafiles'
+    find('tr', text: df1.name).should have_content("File 1b")
+    find('tr', text: df2.checksum).should have_content("4146541315")    
+    find('tr', text: df2.size).should have_content("1256")  
+  end
 end
