@@ -4,7 +4,7 @@ class DatastoresController < ApplicationController
 
 
   def index
-    @datastores = Datastore.all
+    @datastores = Datastore.all.page params[:page]
   end
 
   def new

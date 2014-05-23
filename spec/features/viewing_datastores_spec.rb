@@ -23,4 +23,21 @@ feature "Viewing datastores" do
     find('tr', text: ds1.name).should have_content("DVD")
     find('tr', text: ds2.id).should have_content("CD")    
   end
+
+  scenario "Paging is enabled" do
+    (0..100).each do |i|
+      FactoryGirl.create(:datastore, name: "Disk #{i}", mediatype: "DVD")
+    end
+
+    visit '/'
+    expect(page).to have_content("Next")
+    expect(page).to have_content("Disk 0")
+    expect(page).not_to have_content("Disk 21")
+    expect(page).not_to have_content("Prev")
+
+    click_link 'Next'
+    expect(page).to have_content("Disk 21")
+    expect(page).not_to have_content("Disk 0")
+    expect(page).to have_content("Prev")
+  end
 end
