@@ -37,4 +37,21 @@ feature "Viewing datafiles" do
     find('tr', text: df2.checksum).should have_content("4146541315")    
     find('tr', text: df2.size).should have_content("1256")  
   end
+
+  scenario "Paging is enabled" do
+    (0..100).each do |i|
+      FactoryGirl.create(:datafile, name: "File #{i}", checksum: "ABCD #{i}", size: 658)
+    end
+
+    visit '/datafiles'
+    expect(page).to have_content("Next")
+    expect(page).to have_content("File 0")
+    expect(page).not_to have_content("File 21")
+    expect(page).not_to have_content("Prev")
+
+    click_link 'Next'
+    expect(page).to have_content("File 21")
+    expect(page).not_to have_content("File 0")
+    expect(page).to have_content("Prev")
+  end
 end
