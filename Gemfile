@@ -30,6 +30,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem "pry-rails", "~> 0.3.2"
   gem 'rack-mini-profiler'
+  gem 'capistrano-rails', '~> 1.0.0'
 end
 group :development, :test do
   gem 'factory_girl_rails'
