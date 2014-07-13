@@ -15,7 +15,7 @@ gem 'rolify'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
-gem 'kaminari', '~> 0.15.1'
+gem 'kaminari', '~> 0.16.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 group :development do
   gem 'better_errors'
@@ -30,7 +30,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem "pry-rails", "~> 0.3.2"
   gem 'rack-mini-profiler'
-  gem 'capistrano-rails', '~> 1.0.0'
+  gem 'capistrano-rails', '~> 1.1.0'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -39,6 +39,6 @@ group :development, :test do
 end
 group :test do
   gem 'capybara'
-  gem 'database_cleaner', '~> 1.2.0'
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'email_spec'
 end
