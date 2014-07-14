@@ -5,7 +5,7 @@ class Api::V1::DatastoresController < Api::V1::BaseController
   end
   
   def show
-    @datastore = Datastore.includes(:locations).find(params[:id])
+    @datastore = Datastore.includes(:locations).order("locations.path ASC, locations.name ASC").find(params[:id])
 
     respond_with(
       :datastore => @datastore.as_json,
@@ -89,7 +89,7 @@ class Api::V1::DatastoresController < Api::V1::BaseController
     datastore.locations.each do |loc|
       file = Array.new
       file << loc.datafile
-      loc.datafile.metadata.each {|m| file << m}
+      loc.datafile.metadata.order("key").each {|m| file << m}
 
 
       result << file

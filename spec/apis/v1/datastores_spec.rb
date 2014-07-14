@@ -19,7 +19,7 @@ describe "/api/v1/datastores", :type => :api do
       
       datastores.any? do |ds|
         ds["name"] == datastore.name
-      end.should be_true
+      end
     end
   end
 
@@ -65,23 +65,23 @@ describe "/api/v1/datastores", :type => :api do
       get "/api/v1/datastores/#{ds.id}.json", :token => token, :user_email => user.email
       
       store_response = JSON.parse(last_response.body)
+      #puts store_response["locations"]
+      
       first_location_name = store_response["locations"][0]["name"]
       first_location_name.should eql("fileA.txt")
 
-      #puts store_response["locations"]
-      #puts "-----"
       #puts JSON.parse(store_response["files"])[0][0]["name"]
       #puts "-----"
-      #puts JSON.parse(store_response["files"])[0]
+      #puts JSON.parse(store_response["files"])[2]
 
       files = JSON.parse(store_response["files"])
       first_file = files[0][0]
       first_file["name"].should eql("fileA.txt")
 
-      last_file = files[3][0]
+      last_file = files[2][0]
       last_file["name"].should eql("video.mov")
 
-      files[3][1]["key"].should eql("audio_bitrate")
+      files[2][1]["key"].should eql("audio_bitrate")
     end
   end
 
