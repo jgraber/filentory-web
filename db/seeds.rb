@@ -6,11 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts 'ROLES'
-YAML.load(ENV['ROLES']).each do |role|
-  Role.find_or_create_by_name(role)
-  puts 'role: ' << role
-end
+puts "ENV: #{ENV['ROLES']}"
+#YAML.load(ENV['ROLES']).each do |role|
+#  puts role
+#  Role.where(name: role).first_or_create
+#  #Role.find_or_create_by_name({ :name => role }, :without_protection => true)
+#  puts 'role: ' << role
+#end
+#Role.where(name: :admin).first_or_create
+admin = Role.where(name: :admin).first_or_create
 puts 'DEFAULT USERS'
-user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
+user = User.where(email: Rails.application.secrets.admin_email).first_or_create :name => Rails.application.secrets.admin_name, :password => Rails.application.secrets.admin_password, :password_confirmation => Rails.application.secrets.admin_email
 puts 'user: ' << user.name
-user.add_role :admin
+user.add_role admin
