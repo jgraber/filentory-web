@@ -40,7 +40,7 @@ class Api::V1::DatastoresController < Api::V1::BaseController
     set_datastore_variables(datastore, json)
     add_locations(datastore, json)
 
-    datastore
+    Datastore.where(id: datastore.id).first
   end
 
   def set_datastore_variables(datastore, json)
