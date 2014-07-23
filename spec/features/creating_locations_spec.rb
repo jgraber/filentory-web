@@ -27,4 +27,19 @@ feature 'Creating Location' do
     expect(page).to have_content("Name can't be blank")
   end
 
+
+  scenario "tracks location number" do
+    
+    10.times do |i|
+      fill_in 'Path', with: 'files/'
+      fill_in 'Name', with: "base_#{i}.txt"
+      click_button 'Create Location'
+      click_link 'Show Datastore'
+      click_link 'New Location'
+    end
+
+    visit '/'
+
+    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '10')
+  end
 end

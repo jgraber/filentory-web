@@ -4,6 +4,7 @@ Last modified: <%= @location.last_modified %><br/>
 <%= link_to "Edit Location", [:edit, @datastore, @location] %>
 <%= link_to "Delete Location", [@datastore, @location], method: :delete,
 data: { confirm: "Are you sure you want to delete this location?"} %>
+<%= link_to "Show Datastore", [@datastore] %>
 
 </div>
 

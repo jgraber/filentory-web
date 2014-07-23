@@ -15,7 +15,7 @@
   <tbody>
     <% @datastores.each do |ds| %>
     <tr>
-      <td><%= ds.id %></td><td><%= link_to ds.name, ds %></td><td><%= ds.mediatype %></td><td></td><td></td>
+      <td><%= ds.id %></td><td><%= link_to ds.name, ds %></td><td><%= ds.mediatype %></td><td></td><td><%= ds.locations_count %></td>
     </tr>
     <% end %>
   </tbody>
