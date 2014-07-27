@@ -21,6 +21,14 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label :checksum %><br />
+    <%= f.text_field :checksum %>
+  </p>
+  <p>
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </p>
+  <p>
     <%= f.datetime_select :last_modified %>
   </p>
   <%= f.submit %>

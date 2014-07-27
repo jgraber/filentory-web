@@ -42,4 +42,48 @@ feature 'Creating Location' do
 
     page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '10')
   end
+
+  scenario "can pint to an existing datafile without modifiing it" do
+    visit '/datafiles'
+    click_link 'New File'
+    fill_in 'Name', with: 'connected.txt'
+    fill_in 'Checksum', with: 'THIS_IS_A_HASH'
+    click_button 'Create Datafile'
+
+    visit '/'
+    click_link "DVD 2"
+    click_link "New Location"
+
+    fill_in 'Path', with: 'other/'
+    fill_in 'Name', with: 'pointsTo.txt'
+    fill_in 'Checksum', with: 'THIS_IS_A_HASH'
+    fill_in 'Size', with: 100000
+
+    click_button 'Create Location'
+    expect(page).to have_content('Location has been created.')
+
+    visit '/datafiles'
+    #print page.html
+    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '') # size
+    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
+  end
+
+  scenario "can pint to an existing datafile without modifiing it" do
+    visit '/'
+    click_link "DVD 2"
+    click_link "New Location"
+
+    fill_in 'Path', with: 'other/'
+    fill_in 'Name', with: 'pointsTo.txt'
+    fill_in 'Checksum', with: 'THIS_IS_NOT_A_REAL_HASH'
+    fill_in 'Size', with: 100000
+
+    click_button 'Create Location'
+    expect(page).to have_content('Location has been created.')
+
+    visit '/datafiles'
+    #print page.html
+    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '100000') # size
+    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
+  end
 end

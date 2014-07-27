@@ -9,12 +9,12 @@
 <div class="col-md-8">
 <table  class="table table-striped">
   <thead>
-    <tr><th>Id</th><th>Name</th><th>Size</th><th>Checksum</th></tr>
+    <tr><th>Id</th><th>Name</th><th>Size</th><th>Checksum</th><th># Locations</th></tr>
   </thead>
   <tbody>
     <% @datafiles.each do |datafile| %>
     <tr>
-      <td><%= datafile.id %></td><td><%= link_to datafile.name, datafile %></td><td><%= datafile.size %></td><td><%= datafile.checksum%></td>
+      <td><%= datafile.id %></td><td><%= link_to datafile.name, datafile %></td><td><%= datafile.size %></td><td><%= datafile.checksum%></td><td><%= datafile.locations_count %></td>
     </tr>
     <% end %>
   </tbody>
