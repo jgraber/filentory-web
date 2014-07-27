@@ -10,8 +10,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = @datastore.locations.build(location_params)
-    set_datafile unless @location.checksum.empty?
-              
+    update_datafile         
     if @location.save
       flash[:notice] = "Location has been created."
       redirect_to [@datastore, @location]
@@ -28,7 +27,9 @@ class LocationsController < ApplicationController
   end
 
   def update
-    if @location.update(location_params)
+    @location.attributes=location_params
+    update_datafile
+    if @location.save
       flash[:notice] = "Location has been updated."
       redirect_to [@datastore, @location]
     else
@@ -56,21 +57,25 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:name, :path, :last_modified, :checksum, :size)
   end
 
-  def set_datafile
-    #puts "Location: size: #{@location.size}, check: #{@location.checksum}"
-    datafile = Datafile.find_or_create_by(checksum: @location.checksum)
-    #puts "Datafile for location: #{datafile.checksum}, size: #{datafile.size}, id: #{datafile.id}, name: #{datafile.name}"
-    
-    if not datafile.persisted?
-      datafile.size = @location.size
-      datafile.name = @location.name
-      datafile.save!
-      #puts "datafile id: #{datafile.id}"
-    end
+  def update_datafile
+    before_datafile = @location.datafile
+    return if before_datafile.nil? and @location.checksum.empty?
 
-    
-    @location.datafile = datafile
-    @location.save
-    datafile.save
+    before_checksum = nil
+    before_checksum = before_datafile.checksum unless before_datafile.nil?
+
+    if !before_datafile.nil? and @location.checksum.empty? 
+      @location.datafile = nil
+    else
+      datafile = Datafile.find_or_create_by(checksum: @location.checksum)
+      if not datafile.persisted?
+        datafile.size = @location.size
+        datafile.name = @location.name
+        datafile.locations_count = 0
+        #datafile.save!
+        #puts "datafile id: #{datafile.id}"
+      end
+      @location.datafile = datafile unless !before_datafile.nil? || before_checksum == @location.checksum
+    end
   end
 end
