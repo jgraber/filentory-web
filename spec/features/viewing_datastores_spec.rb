@@ -31,13 +31,24 @@ feature "Viewing datastores" do
 
     visit '/'
     expect(page).to have_content("Next")
-    expect(page).to have_content("Disk 0")
-    expect(page).not_to have_content("Disk 21")
+    expect(page).to have_content("Disk 100")
+    expect(page).not_to have_content("Disk 0")
     expect(page).not_to have_content("Prev")
 
-    click_link 'Next'
-    expect(page).to have_content("Disk 21")
-    expect(page).not_to have_content("Disk 0")
+    click_link 'Last'
+    expect(page).to have_content("Disk 0")
+    expect(page).not_to have_content("Disk 100")
     expect(page).to have_content("Prev")
+  end
+
+  scenario "Newest datastore is showed first" do
+    (1..50).each do |i|
+      FactoryGirl.create(:datastore, name: "Disk #{i}", mediatype: "DVD")
+    end
+    
+    visit '/'
+    
+    expect(page).to have_content("Disk 50")
+    expect(page).not_to have_content("Disk 1")
   end
 end

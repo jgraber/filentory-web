@@ -1,5 +1,5 @@
 class Datastore < ActiveRecord::Base
-  paginates_per 15
+  paginates_per 25
 
   validates :name, presence: true
 
