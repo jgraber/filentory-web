@@ -1,5 +1,5 @@
 <div id='location'>
-<h2><%= @location.path %><%= @location.name %></h2>
+<h2><%= @location.path %> / <%= @location.name %></h2>
 Last modified: <%= @location.last_modified %><br/>
 <%= link_to "Edit Location", [:edit, @datastore, @location] %>
 <%= link_to "Delete Location", [@datastore, @location], method: :delete,

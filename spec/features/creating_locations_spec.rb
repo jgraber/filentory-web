@@ -13,12 +13,12 @@ feature 'Creating Location' do
   end
 
   scenario "can create a location in a datastore" do
-    fill_in 'Path', with: 'files/'
+    fill_in 'Path', with: 'files'
     fill_in 'Name', with: 'base.txt'
     click_button 'Create Location'
     expect(page).to have_content('Location has been created.')
 
-    expect(page).to have_content("files/base.txt")
+    expect(page).to have_content("files / base.txt")
   end
   
   scenario "can not create a location without a name" do
@@ -31,7 +31,7 @@ feature 'Creating Location' do
   scenario "tracks location number" do
     
     10.times do |i|
-      fill_in 'Path', with: 'files/'
+      fill_in 'Path', with: 'files'
       fill_in 'Name', with: "base_#{i}.txt"
       click_button 'Create Location'
       click_link 'Show Datastore'
@@ -54,7 +54,7 @@ feature 'Creating Location' do
     click_link "DVD 2"
     click_link "New Location"
 
-    fill_in 'Path', with: 'other/'
+    fill_in 'Path', with: 'other'
     fill_in 'Name', with: 'pointsTo.txt'
     fill_in 'Checksum', with: 'THIS_IS_A_HASH'
     fill_in 'Size', with: 100000
@@ -69,7 +69,7 @@ feature 'Creating Location' do
   end
 
   scenario "can pint to an existing datafile without modifiing it" do
-    fill_in 'Path', with: 'other/'
+    fill_in 'Path', with: 'other'
     fill_in 'Name', with: 'pointsTo.txt'
     fill_in 'Checksum', with: 'THIS_IS_NOT_A_REAL_HASH'
     fill_in 'Size', with: 100000
@@ -84,7 +84,7 @@ feature 'Creating Location' do
   end
 
   scenario "can update datafile it points to" do
-    fill_in 'Path', with: 'other/'
+    fill_in 'Path', with: 'other'
     fill_in 'Name', with: 'edit.txt'
     
     click_button 'Create Location'
