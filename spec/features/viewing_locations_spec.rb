@@ -32,4 +32,14 @@ feature "Viewing locations" do
 
     expect(page).to have_content("2014-02-16 12:00:00")   
   end
+
+  scenario "Location details show correct path" do
+    click_link 'DVD 1'
+
+    click_link 'fileA.txt'
+
+    within("#location h2") do
+      expect(page).to have_content("folder / fileA.txt")
+    end
+  end
 end
