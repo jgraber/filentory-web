@@ -12,7 +12,8 @@ feature "Viewing locations" do
         value: "Johnny Graber")
 
     fileB = FactoryGirl.create(:datafile, name: "fileB.txt")
-    FactoryGirl.create(:metadata, datafile: fileB, key: "AA", value: "VALLL")
+    FactoryGirl.create(:metadata, datafile: fileB, key: "AA", value: "PDF")
+    FactoryGirl.create(:metadata, datafile: fileB, key: "ZZ", value: "125x256")
 
     visit '/datafiles'
   end
@@ -28,5 +29,13 @@ feature "Viewing locations" do
     within("#metadata") do
       expect(page).to have_content("author")
     end
+  end
+
+  scenario "Metadata is alphabeticaly sorted by key" do
+    click_link 'fileB.txt'
+    
+    #print page.html
+    page.should have_selector("table#metadata tr:nth-child(1) td:nth-child(2)", text: "AA: PDF")
+    page.should have_selector("table#metadata tr:nth-child(2) td:nth-child(2)", text: "ZZ: 125x256")
   end
 end

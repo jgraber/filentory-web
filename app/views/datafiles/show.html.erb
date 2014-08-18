@@ -34,12 +34,12 @@
 
 <div class="col-md-6">
 <h2>Metadata</h2>
-<table  class="table table-striped">
+<table  class="table table-striped" id="metadata">
   <thead>
     <tr><th>Id</th><th>Value</th></tr>
   </thead>
   <tbody>
-    <% @datafile.metadata.each do |metadata| %>
+    <% @datafile.metadata.order("key asc").each do |metadata| %>
     <tr>
       <td><%= metadata.id %></td><td><%= link_to metadata, [@datafile, metadata] %></td>
     </tr>
