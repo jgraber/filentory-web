@@ -4,7 +4,6 @@ class MetadataController < ApplicationController
   before_action :set_metadata, only: [:show, :edit, :update, :destroy]
 
   def index
-    @metadatas = @datafile.metadata
   end
 
   def new
