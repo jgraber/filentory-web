@@ -76,6 +76,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -204,6 +205,11 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    simplecov (0.9.0)
+      docile (~> 1.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
     slop (3.5.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -281,6 +287,7 @@ DEPENDENCIES
   rspec-rails (~> 2.14.2)
   sass-rails (~> 4.0)
   simple_form
+  simplecov
   therubyracer
   thin
   turbolinks

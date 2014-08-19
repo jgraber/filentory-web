@@ -42,4 +42,5 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner', '~> 1.3.0'
   gem 'email_spec'
+  gem 'simplecov', :require => false
 end
