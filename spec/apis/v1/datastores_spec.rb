@@ -51,6 +51,17 @@ describe "/api/v1/datastores", :type => :api do
       last_response.body.should eql(ds.to_json)
     end
 
+    it "misses a name" do
+      post "#{url}.json", :token => token,
+                          :user_email => user.email,
+                          :datastore => {
+                            :mediatype => "DVD"
+                          }
+
+      last_response.status.should eql(422)              
+      last_response.body.should eql ('{"errors":{"name":["can\'t be blank"]}}')
+    end
+
     it "can use filentory-cli output" do
       post "#{url}.json", :token => token,
                           :user_email => user.email,
