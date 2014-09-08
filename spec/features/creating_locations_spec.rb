@@ -43,7 +43,7 @@ feature 'Creating Location' do
     page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '10')
   end
 
-  scenario "can pint to an existing datafile without modifiing it" do
+  scenario "can point to an existing datafile without modifiing it" do
     visit '/datafiles'
     click_link 'New File'
     fill_in 'Name', with: 'connected.txt'
