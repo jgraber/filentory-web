@@ -68,7 +68,7 @@ feature 'Creating Location' do
     page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
   end
 
-  scenario "can pint to an existing datafile without modifiing it" do
+  scenario "can point to an existing datafile without modifiing it" do
     fill_in 'Path', with: 'other'
     fill_in 'Name', with: 'pointsTo.txt'
     fill_in 'Checksum', with: 'THIS_IS_NOT_A_REAL_HASH'
