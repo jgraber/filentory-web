@@ -1,4 +1,4 @@
-Filentory
+Filentory [![Build Status](https://travis-ci.org/jgraber/filentory-web.svg)](https://travis-ci.org/jgraber/filentory-web)
 =========
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
