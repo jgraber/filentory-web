@@ -33,9 +33,9 @@ feature "Viewing datafiles" do
     df2 = FactoryGirl.create(:datafile, name: "File 2", checksum: "4146541315", size: 1256)
 
     visit '/datafiles'
-    find('tr', text: df1.name).should have_content("File 1b")
-    find('tr', text: df2.checksum).should have_content("4146541315")    
-    find('tr', text: df2.size).should have_content("1256")  
+    expect(find('tr', text: df1.name)).to have_content("File 1b")
+    expect(find('tr', text: df2.checksum)).to have_content("4146541315")    
+    expect(find('tr', text: df2.size)).to have_content("1256")  
   end
 
   scenario "Paging is enabled" do

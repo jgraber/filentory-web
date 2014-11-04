@@ -40,7 +40,7 @@ feature 'Creating Location' do
 
     visit '/'
 
-    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '10')
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '10')
   end
 
   scenario "can point to an existing datafile without modifiing it" do
@@ -64,8 +64,8 @@ feature 'Creating Location' do
 
     visit '/datafiles'
     #print page.html
-    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '') # size
-    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '') # size
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
   end
 
   scenario "can point to an existing datafile without modifiing it" do
@@ -79,8 +79,8 @@ feature 'Creating Location' do
 
     visit '/datafiles'
     #print page.html
-    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '100000') # size
-    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '100000') # size
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
   end
 
   scenario "can update datafile it points to" do
@@ -96,7 +96,7 @@ feature 'Creating Location' do
 
     visit '/datafiles'
     #print page.html
-    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(4)", text: 'HASH_AFTER_UPDATE') # #locations 
-    page.should have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(4)", text: 'HASH_AFTER_UPDATE') # #locations 
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
   end
 end

@@ -11,6 +11,6 @@ describe Datafile do
     datafile.save!
 
     file = Datafile.where(id: datafile.id).first
-    file.locations_count.should == 1
+    expect(file.locations_count).to eq 1
   end
 end

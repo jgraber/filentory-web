@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LocationsController do
+describe LocationsController, :type => :controller do
   let!(:user){ FactoryGirl.create(:user)}
   
   before do

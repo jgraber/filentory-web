@@ -30,8 +30,8 @@ feature "Navigation Filentory" do
   scenario "Logout link is last" do
     visit "/"
     
-    page.should have_selector("ul.nav.navbar-nav li:nth-child(3)", text: "Edit account")
-    page.should have_selector("ul.nav.navbar-nav li:nth-child(4)", text: "Logout")
+    expect(page).to have_selector("ul.nav.navbar-nav li:nth-child(3)", text: "Edit account")
+    expect(page).to have_selector("ul.nav.navbar-nav li:nth-child(4)", text: "Logout")
   end
 
 end

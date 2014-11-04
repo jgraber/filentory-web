@@ -11,6 +11,6 @@ describe Datastore do
     datastore.save!
 
     store = Datastore.where(id: datastore.id).first
-    store.locations_count.should == 1
+    expect(store.locations_count).to eq 1
   end
 end

@@ -35,7 +35,7 @@ feature "Viewing locations" do
     click_link 'fileB.txt'
     
     #print page.html
-    page.should have_selector("table#metadata tr:nth-child(1) td:nth-child(2)", text: "AA: PDF")
-    page.should have_selector("table#metadata tr:nth-child(2) td:nth-child(2)", text: "ZZ: 125x256")
+    expect(page).to have_selector("table#metadata tr:nth-child(1) td:nth-child(2)", text: "AA: PDF")
+    expect(page).to have_selector("table#metadata tr:nth-child(2) td:nth-child(2)", text: "ZZ: 125x256")
   end
 end

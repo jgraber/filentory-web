@@ -12,8 +12,8 @@ describe "/api/v1/datastores", :type => :api do
       get "#{url}.json", :token => token, :user_email => user.email
       
       datastores_json = Datastore.all.to_json
-      last_response.body.should eql(datastores_json)
-      last_response.status.should eql(200)
+      expect(last_response.body).to eql(datastores_json)
+      expect(last_response.status).to eql(200)
       
       datastores = JSON.parse(last_response.body)
       
@@ -28,8 +28,8 @@ describe "/api/v1/datastores", :type => :api do
       get "#{url}.json"
 
       error = "{\"error\":\"You need to sign in or sign up before continuing.\"}"
-      last_response.body.should eql(error)
-      last_response.status.should eql(401)
+      expect(last_response.body).to eql(error)
+      expect(last_response.status).to eql(401)
     end
   end
 
@@ -45,10 +45,10 @@ describe "/api/v1/datastores", :type => :api do
 
       ds = Datastore.find_by_name!("Inspector")
       route = "/api/v1/datastores/#{ds.id}"
-      last_response.status.should eql(201)
+      expect(last_response.status).to eql(201)
 
-      last_response.headers["Location"].should eql(route)
-      last_response.body.should eql(ds.to_json)
+      expect(last_response.headers["Location"]).to eql(route)
+      expect(last_response.body).to eql(ds.to_json)
     end
 
     it "misses a name" do
@@ -58,8 +58,8 @@ describe "/api/v1/datastores", :type => :api do
                             :mediatype => "DVD"
                           }
 
-      last_response.status.should eql(422)              
-      last_response.body.should eql ('{"errors":{"name":["can\'t be blank"]}}')
+      expect(last_response.status).to eql(422)              
+      expect(last_response.body).to eql ('{"errors":{"name":["can\'t be blank"]}}')
     end
 
     it "can use filentory-cli output" do
@@ -68,10 +68,10 @@ describe "/api/v1/datastores", :type => :api do
                           :data => doc
       ds = Datastore.find_by_name!("testrun")
       route = "/api/v1/datastores/#{ds.id}"
-      last_response.status.should eql(201)
+      expect(last_response.status).to eq(201)
 
-      last_response.headers["Location"].should eql(route)
-      last_response.body.should eql(ds.to_json)
+      expect(last_response.headers["Location"]).to eql(route)
+      expect(last_response.body).to eq(ds.to_json)
 
       get "/api/v1/datastores/#{ds.id}.json", :token => token, :user_email => user.email
       
@@ -79,7 +79,7 @@ describe "/api/v1/datastores", :type => :api do
       #puts store_response["locations"]
       
       first_location_name = store_response["locations"][0]["name"]
-      first_location_name.should eql("fileA.txt")
+      expect(first_location_name).to eq("fileA.txt")
 
       #puts JSON.parse(store_response["files"])[0][0]["name"]
       #puts "-----"
@@ -87,12 +87,12 @@ describe "/api/v1/datastores", :type => :api do
 
       files = JSON.parse(store_response["files"])
       first_file = files[0][0]
-      first_file["name"].should eql("fileA.txt")
+      expect(first_file["name"]).to eql("fileA.txt")
 
       last_file = files[2][0]
-      last_file["name"].should eql("video.mov")
+      expect(last_file["name"]).to eql("video.mov")
 
-      files[2][1]["key"].should eql("audio_bitrate")
+      expect(files[2][1]["key"]).to eql("audio_bitrate")
     end
   end
 

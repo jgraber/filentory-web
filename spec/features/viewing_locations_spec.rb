@@ -22,7 +22,7 @@ feature "Viewing locations" do
   scenario "Viewing locations for a given datastrore" do
     click_link 'DVD 1'
 
-    find('tr', text: "folder").should have_content("fileA.txt")
+    expect(find('tr', text: "folder")).to have_content("fileA.txt")
     expect(page).to_not have_content("fileB.txt")
 
     click_link 'fileA.txt'

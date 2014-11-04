@@ -34,8 +34,8 @@ group :development do
 end
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'rspec', '~> 2.14.1'
-  gem 'rspec-rails', '~> 2.14.2'
+  gem 'rspec'#, '~> 2.14.1'
+  gem 'rspec-rails'#, '~> 2.14.2'
   gem "rack-test", require: "rack/test"
 end
 group :test do
