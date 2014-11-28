@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+#ruby '2.1.2'
 gem 'rails', '4.1.8'
 gem 'pg', '~> 0.17.1'
 gem 'sass-rails', '~> 4.0.5'
@@ -30,6 +30,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem "pry-rails", "~> 0.3.2"
   gem 'rack-mini-profiler'
+  gem 'capistrano',  '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
 end
 group :development, :test do

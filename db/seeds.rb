@@ -16,6 +16,6 @@ puts "ENV: #{ENV['ROLES']}"
 #Role.where(name: :admin).first_or_create
 admin = Role.where(name: :admin).first_or_create
 puts 'DEFAULT USERS'
-user = User.where(email: Rails.application.secrets.admin_email).first_or_create :name => Rails.application.secrets.admin_name, :password => Rails.application.secrets.admin_password, :password_confirmation => Rails.application.secrets.admin_email
+user = User.where(email: Rails.application.secrets.admin_email).first_or_create :name => Rails.application.secrets.admin_name, :password => Rails.application.secrets.admin_password, :password_confirmation => Rails.application.secrets.admin_password
 puts 'user: ' << user.name
 user.add_role admin
