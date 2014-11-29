@@ -20,6 +20,17 @@ If you add functionality to this application, create an alternative
 implementation, or build an application that is similar, please contact
 me and I’ll add a note to the README so that others can find your work.
 
+
+Deployment
+--
+
+Capistrano is used to deploy the application.
+~~~Ruby
+cap -T # to show the tasks available
+cap production deploy # to deploy on production
+~~~
+
+
 Credits
 --
 
