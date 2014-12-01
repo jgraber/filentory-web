@@ -9,8 +9,11 @@ feature "Log in." do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button "Log in"
-
+    #print page.html
     expect(page).to have_content("Signed in successfully.")
+    expect(page).to have_css('div#flash_notice')
+    expect(page).to have_css('div.alert.alert-success')
+    
   end
 
   scenario 'unknown usrs get an error' do
