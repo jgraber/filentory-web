@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
+source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
 gem 'rails', '4.1.8'
 gem 'pg', '~> 0.17.1'
@@ -32,6 +33,8 @@ group :development do
   gem 'rack-mini-profiler'
   gem 'capistrano',  '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler', '~> 1.1'
+  gem 'capistrano-rvm'
 end
 group :development, :test do
   gem 'factory_girl_rails'
