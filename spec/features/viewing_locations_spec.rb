@@ -42,4 +42,28 @@ feature "Viewing locations" do
       expect(page).to have_content("folder / fileA.txt")
     end
   end
+
+
+  scenario "Detail page of datastore uses paging for locations" do
+    ds = FactoryGirl.create(:datastore, name: "Paging", mediatype: "DVD") 
+    (1..50).each do |i|
+      number = "%03d" % i 
+      FactoryGirl.create(:location, datastore: ds, path: "/", name: "file_#{number}.txt")
+    end
+    
+    visit '/'
+    click_link 'Paging'
+
+    expect(page).to have_content("Next")
+    expect(page).to have_content("file_001.txt")
+    expect(page).not_to have_content("file_050.txt")
+    expect(page).not_to have_content("Prev")
+
+    click_link 'Last'
+
+    #print page.html
+    expect(page).to have_content("file_050.txt")
+    expect(page).not_to have_content("file_001.txt")
+    expect(page).to have_content("Prev")
+  end
 end

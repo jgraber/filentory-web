@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  paginates_per 15
   validates :name, presence: true
   
   belongs_to :datastore, :counter_cache => true
