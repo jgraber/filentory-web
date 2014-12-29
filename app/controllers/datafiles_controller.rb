@@ -3,7 +3,7 @@ class DatafilesController < ApplicationController
   before_action :set_datafile, only: [:show, :edit, :update, :destroy]
   
   def index
-    @datafiles = Datafile.all.page params[:page]
+    @datafiles = Datafile.all.order('id desc').page params[:page]
   end
 
   def new

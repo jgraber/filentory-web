@@ -45,13 +45,13 @@ feature "Viewing datafiles" do
 
     visit '/datafiles'
     expect(page).to have_content("Next")
-    expect(page).to have_content("File 0")
-    expect(page).not_to have_content("File 21")
+    expect(page).to have_content("File 100")
+    expect(page).not_to have_content("File 0")
     expect(page).not_to have_content("Prev")
 
-    click_link 'Next'
-    expect(page).to have_content("File 21")
-    expect(page).not_to have_content("File 0")
+    click_link 'Last'
+    expect(page).to have_content("File 0")
+    expect(page).not_to have_content("File 100")
     expect(page).to have_content("Prev")
   end
 end
