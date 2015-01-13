@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
 gem 'rails', '4.2.0'
-gem 'pg', '~> 0.17.1'
+gem 'pg', '~> 0.18.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -45,7 +45,7 @@ group :development, :test do
 end
 group :test do
   gem 'capybara'
-  gem 'database_cleaner', '~> 1.3.0'
+  gem 'database_cleaner', '~> 1.4.0'
   gem 'email_spec'
   gem 'simplecov', :require => false
 end
