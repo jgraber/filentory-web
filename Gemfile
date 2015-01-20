@@ -16,7 +16,7 @@ gem 'rolify'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
-gem 'kaminari', '~> 0.16.1'
+gem 'kaminari', '~> 0.16'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 group :development do
   gem 'better_errors'
