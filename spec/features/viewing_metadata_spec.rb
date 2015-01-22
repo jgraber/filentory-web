@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Viewing locations" do
+feature "Viewing metadata" do
   let!(:user){ FactoryGirl.create(:user)}
 
   before do
