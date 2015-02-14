@@ -16,7 +16,7 @@ gem 'rolify'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
-gem 'kaminari', '~> 0.16'
+gem 'kaminari', '~> 0.16.3'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 group :development do
   gem 'better_errors'
@@ -30,7 +30,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem "pry-rails", "~> 0.3.2"
+  gem "pry-rails", "~> 0.3.3"
   gem 'rack-mini-profiler'
   gem 'capistrano',  '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
