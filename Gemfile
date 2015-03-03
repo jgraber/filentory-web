@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.2.7'
+gem 'jbuilder', '~> 2.2.9'
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'cancan'
 gem 'devise'
@@ -32,7 +32,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem "pry-rails", "~> 0.3.3"
   gem 'rack-mini-profiler'
-  gem 'capistrano',  '~> 3.1'
+  gem 'capistrano',  '~> 3.4'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm'
