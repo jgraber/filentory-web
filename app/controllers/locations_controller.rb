@@ -67,15 +67,19 @@ class LocationsController < ApplicationController
     if !before_datafile.nil? and @location.checksum.empty? 
       @location.datafile = nil
     else
-      datafile = Datafile.find_or_create_by(checksum: @location.checksum)
-      if not datafile.persisted?
-        datafile.size = @location.size
-        datafile.name = @location.name
-        datafile.locations_count = 0
-        #datafile.save!
-        #puts "datafile id: #{datafile.id}"
-      end
+      datafile = get_or_create_datafile(@location)
       @location.datafile = datafile unless !before_datafile.nil? || before_checksum == @location.checksum
     end
   end
+
+  def get_or_create_datafile(location)
+    datafile = Datafile.find_or_create_by(checksum: location.checksum)
+    if not datafile.persisted?
+      datafile.size = location.size
+      datafile.name = location.name
+      datafile.locations_count = 0
+    end
+    datafile
+  end
+
 end
