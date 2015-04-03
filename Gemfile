@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 gem 'pg', '~> 0.18.1'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -30,7 +30,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem "pry-rails", "~> 0.3.3"
+  gem "pry-rails"
   gem 'rack-mini-profiler'
   gem 'capistrano',  '~> 3.4'
   gem 'capistrano-rails', '~> 1.1'
