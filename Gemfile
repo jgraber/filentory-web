@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 gem 'pg', '~> 0.18.2'
 gem 'sass-rails', '~> 5.0.3'
 gem 'uglifier', '>= 1.3.0'
