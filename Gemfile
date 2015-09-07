@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
-gem 'rails', '4.2.3'
-gem 'pg', '~> 0.18.2'
-gem 'sass-rails', '~> 5.0.3'
+gem 'rails', '4.2.4'
+gem 'pg', '~> 0.18.3'
+gem 'sass-rails', '~> 5.0.4'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -45,7 +45,7 @@ group :development, :test do
 end
 group :test do
   gem 'capybara'
-  gem 'database_cleaner', '~> 1.4.1'
+  gem 'database_cleaner', '~> 1.5.0'
   gem 'email_spec'
   gem 'simplecov', :require => false
 end
