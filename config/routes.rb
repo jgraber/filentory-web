@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "datastores#index"
+  #root "datastores#index"
+  root "home#index"
 
   resources :datastores do
   	resources :locations

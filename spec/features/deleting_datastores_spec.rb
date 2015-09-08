@@ -7,6 +7,7 @@ feature "Deleting datastores" do
   before do
     sign_in_as!(user)
     visit '/'
+    click_link "Datastores"
   end
 
   scenario "Deleting a datastore" do

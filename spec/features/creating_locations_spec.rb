@@ -8,6 +8,7 @@ feature 'Creating Location' do
     FactoryGirl.create(:datastore, name: "DVD 2")
 
     visit '/'
+    click_link "Datastores"
     click_link "DVD 2"
     click_link "New Location"
   end
@@ -39,6 +40,7 @@ feature 'Creating Location' do
     end
 
     visit '/'
+    click_link "Datastores"
 
     expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '10')
   end
@@ -51,6 +53,7 @@ feature 'Creating Location' do
     click_button 'Create Datafile'
 
     visit '/'
+    click_link "Datastores"
     click_link "DVD 2"
     click_link "New Location"
 

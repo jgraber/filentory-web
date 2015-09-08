@@ -9,6 +9,7 @@ feature "Navigation Filentory" do
 
   scenario "Main page shows datastores" do
     visit "/"
+    click_link "Datastores"
 
     expect(page).to have_title "Datastores - Filentory"
   end

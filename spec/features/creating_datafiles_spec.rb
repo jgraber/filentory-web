@@ -6,6 +6,7 @@ feature 'Creating Files' do
   before do
     sign_in_as!(user)
     visit '/'
+    click_link "Datastores"
   end
 
   scenario "can create a file" do

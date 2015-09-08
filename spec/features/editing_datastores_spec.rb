@@ -8,6 +8,7 @@ feature "Editing Datastores" do
     
     sign_in_as!(user)
     visit "/"
+    click_link "Datastores"
     click_link "DVD 1"
     click_link "Edit Datastore"
   end

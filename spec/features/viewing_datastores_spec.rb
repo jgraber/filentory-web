@@ -11,6 +11,7 @@ feature "Viewing datastores" do
     datastore = FactoryGirl.create(:datastore, name: "DVD 1")
     
     visit '/'
+    click_link "Datastores"
     click_link 'DVD 1'
     expect(page.current_url).to eql(datastore_url(datastore))
   end
@@ -20,6 +21,7 @@ feature "Viewing datastores" do
     ds2 = FactoryGirl.create(:datastore, name: "Disk 2", mediatype: "CD")
 
     visit '/'
+    click_link "Datastores"
     expect(find('tr', text: ds1.name)).to have_content("DVD")
     expect(find('tr', text: ds2.id)).to have_content("CD")    
   end
@@ -30,6 +32,8 @@ feature "Viewing datastores" do
     end
 
     visit '/'
+    click_link "Datastores"
+    
     expect(page).to have_content("Next")
     expect(page).to have_content("Disk 100")
     expect(page).not_to have_content("Disk 0")
@@ -47,6 +51,7 @@ feature "Viewing datastores" do
     end
     
     visit '/'
+    click_link "Datastores"
     
     expect(page).to have_content("Disk 50")
     expect(page).not_to have_content("Disk 1")

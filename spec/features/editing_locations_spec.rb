@@ -8,6 +8,7 @@ feature "Editing Locations" do
   before do
     sign_in_as!(user)
     visit "/"
+    click_link "Datastores"
     click_link datastore.name
     click_link location.name
     click_link "Edit Location"

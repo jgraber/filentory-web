@@ -16,6 +16,7 @@ feature "Viewing locations" do
     FactoryGirl.create(:location, datastore: dvd2, path: "/", name: "fileb.txt")
 
     visit '/'
+    click_link "Datastores"
   end
 
 
@@ -52,6 +53,7 @@ feature "Viewing locations" do
     end
     
     visit '/'
+    click_link "Datastores"
     click_link 'Paging'
 
     expect(page).to have_content("Next")
