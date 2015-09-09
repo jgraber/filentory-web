@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-  	@statistics = Datafile.count
+  	@statistics = Statistics.new
+  	@statistics.count = Datafile.count
   end
 end
