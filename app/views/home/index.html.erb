@@ -2,8 +2,25 @@
 
 <h1>Welcome to Filentory</h1>
 
-#Datafiles: <%= @statistics.count %>
-Total size: <%= @statistics.total %>
-Minimum size: <%= @statistics.min %>
-Maximum size: <%= @statistics.max %>
-Average size: <%= @statistics.average %>
+<div class="col-md-3">
+<h2>Overview</h2>
+<table  class="table">
+  <tbody>
+    <tr>
+      <td>#Datafiles:</td><td><%= @statistics.count %></td>
+    </tr>
+    <tr>
+      <td>Total size:</td><td><%= @statistics.total %></td>
+    </tr>
+    <tr>
+      <td>Minimum size:</td><td><%= @statistics.min %></td>
+    </tr>
+    <tr>
+      <td>Maximum size:</td><td><%= @statistics.max %></td>
+    </tr>
+    <tr>
+      <td>Average size:</td><td><%= @statistics.average %></td>
+    </tr>
+  </tbody>
+</table>
+</div>
