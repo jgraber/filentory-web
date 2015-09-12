@@ -31,4 +31,8 @@ feature "Viewing the overview" do
     expect(page).to have_content("Minimum size: #{minimumSize}")
   end
 
+  scenario "The maximum size of all files is shown" do
+    maximumSize = 9*10
+    expect(page).to have_content("Maximum size: #{maximumSize}")
+  end
 end
