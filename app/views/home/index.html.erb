@@ -24,3 +24,19 @@
   </tbody>
 </table>
 </div>
+
+<div class="col-md-3" name="datastoretypes">
+<h2>Types of Datastores</h2>
+<table  class="table table-striped">
+  <thead>
+    <tr><th>Mediatype</th><th>Count</th></tr>
+  </thead>
+  <tbody>
+    <% @datastore_types.each do |ds| %>
+    <tr>
+      <td><%= ds[0] %></td><td><%= ds[1] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

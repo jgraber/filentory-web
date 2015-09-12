@@ -8,5 +8,7 @@ class HomeController < ApplicationController
   	@statistics.min = Datafile.minimum(:size)
   	@statistics.max = Datafile.maximum(:size)
   	@statistics.average = Datafile.average(:size)
+
+  	@datastore_types = Datastore.group(:mediatype).count.sort_by {|k, v| v}.reverse.to_h
   end
 end
