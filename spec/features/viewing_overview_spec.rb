@@ -26,4 +26,9 @@ feature "Viewing the overview" do
     expect(page).to have_content("Total size: #{size}")
   end
 
+  scenario "The minimum size of all files is shown" do
+    minimumSize = 0*10
+    expect(page).to have_content("Minimum size: #{minimumSize}")
+  end
+
 end

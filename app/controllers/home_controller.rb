@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   	@statistics = Statistics.new
   	@statistics.count = Datafile.count  	
   	@statistics.total = Datafile.sum(:size)
+  	@statistics.min = Datafile.minimum(:size)
   end
 end
