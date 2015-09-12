@@ -35,4 +35,9 @@ feature "Viewing the overview" do
     maximumSize = 9*10
     expect(page).to have_content("Maximum size: #{maximumSize}")
   end
+
+  scenario "The average size of all files is shown" do
+    averageSize = (0*10 + 1*10 + 2*10 + 3*10 + 4*10 +5*10 + 6*10 + 7*10 + 8*10 + 9*10) / 10
+    expect(page).to have_content("Average size: #{averageSize}")
+  end
 end

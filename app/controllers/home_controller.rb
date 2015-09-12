@@ -7,5 +7,6 @@ class HomeController < ApplicationController
   	@statistics.total = Datafile.sum(:size)
   	@statistics.min = Datafile.minimum(:size)
   	@statistics.max = Datafile.maximum(:size)
+  	@statistics.average = Datafile.average(:size)
   end
 end
