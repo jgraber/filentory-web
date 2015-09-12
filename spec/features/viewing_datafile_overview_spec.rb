@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Viewing the overview" do
+feature "Viewing the Datafile overview" do
   let!(:user){ FactoryGirl.create(:user)}
 
   before do
