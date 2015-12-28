@@ -30,7 +30,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem "pry-rails"
+  gem 'pry-rails'
   gem 'rack-mini-profiler'
   gem 'capistrano',  '~> 3.4'
   gem 'capistrano-rails', '~> 1.1.3'
