@@ -216,7 +216,7 @@ GEM
     rb-fchange (0.0.6)
       ffi
     rb-fsevent (0.9.7)
-    rb-inotify (0.9.5)
+    rb-inotify (0.9.6)
       ffi (>= 0.5.0)
     ref (2.0.0)
     responders (2.1.1)
