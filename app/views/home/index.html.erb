@@ -10,16 +10,16 @@
       <td>#Datafiles:</td><td><%= @statistics.count %></td>
     </tr>
     <tr>
-      <td>Total size:</td><td><%= @statistics.total %></td>
+      <td>Total size:</td><td><%= number_to_human_size(@statistics.total) %></td>
     </tr>
     <tr>
-      <td>Minimum size:</td><td><%= @statistics.min %></td>
+      <td>Minimum size:</td><td><%= number_to_human_size(@statistics.min) %></td>
     </tr>
     <tr>
-      <td>Maximum size:</td><td><%= @statistics.max %></td>
+      <td>Maximum size:</td><td><%= number_to_human_size(@statistics.max) %></td>
     </tr>
     <tr>
-      <td>Average size:</td><td><%= @statistics.average %></td>
+      <td>Average size:</td><td><%= number_to_human_size(@statistics.average) %></td>
     </tr>
   </tbody>
 </table>
