@@ -75,14 +75,14 @@ feature 'Creating Location' do
     fill_in 'Path', with: 'other'
     fill_in 'Name', with: 'pointsTo.txt'
     fill_in 'Checksum', with: 'THIS_IS_NOT_A_REAL_HASH'
-    fill_in 'Size', with: 100000
+    fill_in 'Size', with: '102400'
 
     click_button 'Create Location'
     expect(page).to have_content('Location has been created.')
 
     visit '/datafiles'
     #print page.html
-    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '100000') # size
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '100 KB') # size
     expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(5)", text: '1') # #locations 
   end
 

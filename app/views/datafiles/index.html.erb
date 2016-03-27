@@ -6,7 +6,7 @@
   <%= link_to "New File", new_datafile_path, class: "btn btn-success" %>
 </div>
 
-<div class="col-md-8">
+<div class="col-md-9">
 <table  class="table table-striped">
   <thead>
     <tr><th>Id</th><th>Name</th><th>Size</th><th>Checksum</th><th># Locations</th></tr>
@@ -14,7 +14,7 @@
   <tbody>
     <% @datafiles.each do |datafile| %>
     <tr>
-      <td><%= datafile.id %></td><td><%= link_to datafile.name, datafile %></td><td><%= datafile.size %></td><td><%= datafile.checksum%></td><td><%= datafile.locations_count %></td>
+      <td><%= datafile.id %></td><td><%= link_to datafile.name, datafile %></td><td><%= number_to_human_size(datafile.size) %></td><td><%= datafile.checksum%></td><td><%= datafile.locations_count %></td>
     </tr>
     <% end %>
   </tbody>

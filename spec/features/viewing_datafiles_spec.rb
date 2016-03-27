@@ -30,12 +30,16 @@ feature "Viewing datafiles" do
 
   scenario "Show datafiles as table" do
     df1 = FactoryGirl.create(:datafile, name: "File 1b", checksum: "12556356")    
-    df2 = FactoryGirl.create(:datafile, name: "File 2", checksum: "4146541315", size: 1256)
+    df2 = FactoryGirl.create(:datafile, name: "File 2", checksum: "4146541315", size: 12560)
 
     visit '/datafiles'
-    expect(find('tr', text: df1.name)).to have_content("File 1b")
-    expect(find('tr', text: df2.checksum)).to have_content("4146541315")    
-    expect(find('tr', text: df2.size)).to have_content("1256")  
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(2)", text: 'File 2')
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(3)", text: '12.3 KB')
+    expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(4)", text: '4146541315')
+
+    expect(page).to have_selector("table tbody tr:nth-of-type(2) td:nth-of-type(2)", text: 'File 1b')
+    expect(page).to have_selector("table tbody tr:nth-of-type(2) td:nth-of-type(3)", text: '1 Byte')
+    expect(page).to have_selector("table tbody tr:nth-of-type(2) td:nth-of-type(4)", text: '12556356')
   end
 
   scenario "Paging is enabled" do
