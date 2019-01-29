@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
-gem 'rails', '4.2.11'
-gem 'nokogiri', '~> 1.6.8'
+gem 'rails', '5.0.7.1'
+gem 'nokogiri'#, '~> 1.6.8'
 gem 'net-scp', '~> 1.1.2' 
 gem 'net-ssh', '~> 2.6.5'
 gem 'sassc', '~> 1.9'
 gem 'pg', '~> 0.18.3'
-gem 'sass-rails', '~> 5.0.4'
+#gem 'sass-rails', '~> 5.0.4'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'#, '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
@@ -20,7 +20,7 @@ gem 'rolify'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
-gem 'kaminari', '~> 0.16.3'
+gem 'kaminari'#, '~> 0.16.3'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 group :development do
   gem 'better_errors'
@@ -29,7 +29,7 @@ group :development do
   #gem 'guard-bundler'
   #gem 'guard-rails'
   #gem 'guard-rspec'
-  gem 'quiet_assets'
+#  gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
@@ -40,7 +40,8 @@ group :development do
   gem 'capistrano',  '~> 3.4'
   gem 'capistrano-rails', '~> 1.1.3'
   gem 'capistrano-bundler', '~> 1.1'
-  gem 'capistrano-rvm'
+  gem 'capistrano-rvm',   '~> 0.1', require: false   
+  gem 'capistrano-rbenv', '~> 2.0', require: false
 end
 group :development, :test do
   gem 'factory_bot_rails'
