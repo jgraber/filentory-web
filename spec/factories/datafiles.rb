@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :datafile do
-    name "MyString"
-    checksum "MyString"
-    size 1
+    name { "MyString" }
+    checksum { "MyString" }
+    size { 1 }
   end
 end

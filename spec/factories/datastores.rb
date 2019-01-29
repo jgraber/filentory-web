@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :datastore do
-    name "MyString"
-    mediatype ""
+    name { "MyString" }
+    mediatype { "" }
   end
 end

@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :metadata, :class => 'Metadata' do
-    key "MyString"
-    value "MyString"
-    datafile nil
+    key { "MyString" }
+    value { "MyString" }
+    datafile { nil }
   end
 end
