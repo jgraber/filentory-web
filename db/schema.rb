@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141221140930) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "datafiles", force: true do |t|
+  create_table "datafiles", force: :cascade do |t|
     t.string   "name"
     t.string   "checksum"
     t.integer  "size",            limit: 8
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141221140930) do
 
   add_index "datafiles", ["checksum"], name: "index_datafiles_on_checksum", using: :btree
 
-  create_table "datastores", force: true do |t|
+  create_table "datastores", force: :cascade do |t|
     t.string   "name"
     t.string   "mediatype"
     t.datetime "created_at"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141221140930) do
     t.integer  "locations_count", default: 0
   end
 
-  create_table "locations", force: true do |t|
+  create_table "locations", force: :cascade do |t|
     t.string   "path"
     t.string   "name"
     t.datetime "last_modified"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20141221140930) do
   add_index "locations", ["datafile_id"], name: "index_locations_on_datafile_id", using: :btree
   add_index "locations", ["datastore_id"], name: "index_locations_on_datastore_id", using: :btree
 
-  create_table "metadata", force: true do |t|
+  create_table "metadata", force: :cascade do |t|
     t.string   "key"
     t.string   "value"
     t.integer  "datafile_id"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20141221140930) do
   add_index "metadata", ["datafile_id", "key"], name: "index_metadata_on_datafile_id_and_key", using: :btree
   add_index "metadata", ["datafile_id"], name: "index_metadata_on_datafile_id", using: :btree
 
-  create_table "roles", force: true do |t|
+  create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20141221140930) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20141221140930) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "users_roles", id: false, force: true do |t|
+  create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end

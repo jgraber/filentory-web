@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe HomeController, :type => :controller do
 
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   it "redirect to login when not authenticated" do
     get :index, id: "not-here"   

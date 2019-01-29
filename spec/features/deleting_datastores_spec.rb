@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 feature "Deleting datastores" do
-  let!(:user) {FactoryGirl.create(:user)}
-  let!(:datastore) {FactoryGirl.create(:datastore, name: "DVD 1")}
+  let!(:user) {FactoryBot.create(:user)}
+  let!(:datastore) {FactoryBot.create(:datastore, name: "DVD 1")}
 
   before do
     sign_in_as!(user)

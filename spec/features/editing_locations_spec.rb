@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature "Editing Locations" do
-  let!(:user){ FactoryGirl.create(:user)}
-  let!(:datastore) {FactoryGirl.create(:datastore)}
-  let!(:location) {FactoryGirl.create(:location, datastore: datastore)}
+  let!(:user){ FactoryBot.create(:user)}
+  let!(:datastore) {FactoryBot.create(:datastore)}
+  let!(:location) {FactoryBot.create(:location, datastore: datastore)}
 
   before do
     sign_in_as!(user)

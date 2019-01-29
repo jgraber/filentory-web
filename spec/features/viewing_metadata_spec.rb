@@ -1,19 +1,19 @@
 require 'spec_helper'
 
 feature "Viewing metadata" do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     sign_in_as!(user)
-    fileA = FactoryGirl.create(:datafile, name: "fileA.txt")
-    FactoryGirl.create(:metadata, 
+    fileA = FactoryBot.create(:datafile, name: "fileA.txt")
+    FactoryBot.create(:metadata, 
         datafile: fileA,
         key: "author", 
         value: "Johnny Graber")
 
-    fileB = FactoryGirl.create(:datafile, name: "fileB.txt")
-    FactoryGirl.create(:metadata, datafile: fileB, key: "AA", value: "PDF")
-    FactoryGirl.create(:metadata, datafile: fileB, key: "ZZ", value: "125x256")
+    fileB = FactoryBot.create(:datafile, name: "fileB.txt")
+    FactoryBot.create(:metadata, datafile: fileB, key: "AA", value: "PDF")
+    FactoryBot.create(:metadata, datafile: fileB, key: "ZZ", value: "125x256")
 
     visit '/datafiles'
   end

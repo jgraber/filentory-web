@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 feature "Viewing the Datastore overview" do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     3.times do |i|
-      FactoryGirl.create(:datastore, mediatype: "CD")
+      FactoryBot.create(:datastore, mediatype: "CD")
     end
     10.times do |i|
-      FactoryGirl.create(:datastore, mediatype: "DVD")
+      FactoryBot.create(:datastore, mediatype: "DVD")
     end
     6.times do |i|
-      FactoryGirl.create(:datastore, mediatype: "HDD")
+      FactoryBot.create(:datastore, mediatype: "HDD")
     end
 
     sign_in_as!(user)

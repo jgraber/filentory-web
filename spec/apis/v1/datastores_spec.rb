@@ -2,9 +2,9 @@ require "spec_helper"
 require "rack/test"
 
 describe "/api/v1/datastores", :type => :api do 
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryBot.create(:user) }
   let!(:token) { user.authentication_token }
-  let!(:datastore) { FactoryGirl.create(:datastore) }
+  let!(:datastore) { FactoryBot.create(:datastore) }
   let(:url) { "/api/v1/datastores" }
 
   context "projects viewable by this user" do

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature "Editing Users" do
-  let!(:user){ FactoryGirl.create(:user, authentication_token: "abcdefghi123456")}
+  let!(:user){ FactoryBot.create(:user, authentication_token: "abcdefghi123456")}
 
   before do
     sign_in_as!(user)

@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 feature "Editing Datastores" do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
-    FactoryGirl.create(:datastore, name: "DVD 1")
+    FactoryBot.create(:datastore, name: "DVD 1")
     
     sign_in_as!(user)
     visit "/"

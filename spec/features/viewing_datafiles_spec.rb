@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature "Viewing datafiles" do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     sign_in_as!(user)
-    @datafile = FactoryGirl.create(:datafile, name: "base.txt")
+    @datafile = FactoryBot.create(:datafile, name: "base.txt")
     visit '/datafiles'
   end
   
@@ -15,8 +15,8 @@ feature "Viewing datafiles" do
   end
 
   scenario "Viewing locations for a given datafile" do
-    dvd1 = FactoryGirl.create(:datastore, name: "DVD 1")
-    FactoryGirl.create(:location, 
+    dvd1 = FactoryBot.create(:datastore, name: "DVD 1")
+    FactoryBot.create(:location, 
         datastore: dvd1, 
         path: "folder", 
         name: "fileA.txt",
@@ -29,8 +29,8 @@ feature "Viewing datafiles" do
   end
 
   scenario "Show datafiles as table" do
-    df1 = FactoryGirl.create(:datafile, name: "File 1b", checksum: "12556356")    
-    df2 = FactoryGirl.create(:datafile, name: "File 2", checksum: "4146541315", size: 12560)
+    df1 = FactoryBot.create(:datafile, name: "File 1b", checksum: "12556356")    
+    df2 = FactoryBot.create(:datafile, name: "File 2", checksum: "4146541315", size: 12560)
 
     visit '/datafiles'
     expect(page).to have_selector("table tbody tr:nth-of-type(1) td:nth-of-type(2)", text: 'File 2')
@@ -44,7 +44,7 @@ feature "Viewing datafiles" do
 
   scenario "Paging is enabled" do
     (0..100).each do |i|
-      FactoryGirl.create(:datafile, name: "File #{i}", checksum: "ABCD #{i}", size: 658)
+      FactoryBot.create(:datafile, name: "File #{i}", checksum: "ABCD #{i}", size: 658)
     end
 
     visit '/datafiles'

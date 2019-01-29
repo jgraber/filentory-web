@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature "Viewing the Datafile overview" do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     10.times do |i|
-      FactoryGirl.create(:datafile, name: "file#{i}.txt", size: i * 10)
+      FactoryBot.create(:datafile, name: "file#{i}.txt", size: i * 10)
     end
 
     sign_in_as!(user)

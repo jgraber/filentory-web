@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Log in." do
   scenario 'Log in via form' do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
 
     visit '/'
     click_link 'Login'

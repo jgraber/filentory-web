@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.11'
+gem 'nokogiri', '~> 1.6.8'
+gem 'net-scp', '~> 1.1.2' 
+gem 'net-ssh', '~> 2.6.5'
+gem 'sassc', '~> 1.9'
 gem 'pg', '~> 0.18.3'
 gem 'sass-rails', '~> 5.0.4'
 gem 'uglifier', '>= 1.3.0'
@@ -20,25 +24,26 @@ gem 'kaminari', '~> 0.16.3'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 group :development do
   gem 'better_errors'
-  gem 'web-console'
+  #gem 'web-console'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
-  gem 'guard-bundler'
-  gem 'guard-rails'
-  gem 'guard-rspec'
+  #gem 'guard-bundler'
+  #gem 'guard-rails'
+  #gem 'guard-rspec'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
-  gem 'rb-inotify', :require=>false
+  #gem 'rb-inotify', :require=>false
+  gem 'rb-inotify', '~> 0.9.7', :require=>false
   gem 'pry-rails'
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', '~> 0.10.1'
   gem 'capistrano',  '~> 3.4'
   gem 'capistrano-rails', '~> 1.1.3'
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm'
 end
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rspec'#, '~> 2.14.1'
   gem 'rspec-rails'#, '~> 2.14.2'
   gem "rack-test", require: "rack/test"

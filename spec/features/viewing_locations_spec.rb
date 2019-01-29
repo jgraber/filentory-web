@@ -1,19 +1,19 @@
 require 'spec_helper'
 
 feature "Viewing locations" do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     sign_in_as!(user)
-    dvd1 = FactoryGirl.create(:datastore, name: "DVD 1")
-    FactoryGirl.create(:location, 
+    dvd1 = FactoryBot.create(:datastore, name: "DVD 1")
+    FactoryBot.create(:location, 
         datastore: dvd1, 
         path: "folder", 
         name: "fileA.txt",
         last_modified: "2014-02-16 12:00:00")
 
-    dvd2 = FactoryGirl.create(:datastore, name: "DVD 2")
-    FactoryGirl.create(:location, datastore: dvd2, path: "/", name: "fileb.txt")
+    dvd2 = FactoryBot.create(:datastore, name: "DVD 2")
+    FactoryBot.create(:location, datastore: dvd2, path: "/", name: "fileb.txt")
 
     visit '/'
     click_link "Datastores"
@@ -46,10 +46,10 @@ feature "Viewing locations" do
 
 
   scenario "Detail page of datastore uses paging for locations" do
-    ds = FactoryGirl.create(:datastore, name: "Paging", mediatype: "DVD") 
+    ds = FactoryBot.create(:datastore, name: "Paging", mediatype: "DVD") 
     (1..50).each do |i|
       number = "%03d" % i 
-      FactoryGirl.create(:location, datastore: ds, path: "/", name: "file_#{number}.txt")
+      FactoryBot.create(:location, datastore: ds, path: "/", name: "file_#{number}.txt")
     end
     
     visit '/'

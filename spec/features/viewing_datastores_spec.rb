@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 feature "Viewing datastores" do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     sign_in_as!(user)
   end
 
   scenario "Listing all datastores" do
-    datastore = FactoryGirl.create(:datastore, name: "DVD 1")
+    datastore = FactoryBot.create(:datastore, name: "DVD 1")
     
     visit '/'
     click_link "Datastores"
@@ -17,8 +17,8 @@ feature "Viewing datastores" do
   end
 
   scenario "Show datastores as table" do
-    ds1 = FactoryGirl.create(:datastore, name: "Disk 1b", mediatype: "DVD")    
-    ds2 = FactoryGirl.create(:datastore, name: "Disk 2", mediatype: "CD")
+    ds1 = FactoryBot.create(:datastore, name: "Disk 1b", mediatype: "DVD")    
+    ds2 = FactoryBot.create(:datastore, name: "Disk 2", mediatype: "CD")
 
     visit '/'
     click_link "Datastores"
@@ -28,7 +28,7 @@ feature "Viewing datastores" do
 
   scenario "Paging is enabled" do
     (0..100).each do |i|
-      FactoryGirl.create(:datastore, name: "Disk #{i}", mediatype: "DVD")
+      FactoryBot.create(:datastore, name: "Disk #{i}", mediatype: "DVD")
     end
 
     visit '/'
@@ -47,7 +47,7 @@ feature "Viewing datastores" do
 
   scenario "Newest datastore is showed first" do
     (1..50).each do |i|
-      FactoryGirl.create(:datastore, name: "Disk #{i}", mediatype: "DVD")
+      FactoryBot.create(:datastore, name: "Disk #{i}", mediatype: "DVD")
     end
     
     visit '/'

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Creating Datastores' do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     sign_in_as!(user)

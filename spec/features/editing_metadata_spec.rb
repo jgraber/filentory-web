@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature "Editing Metadata" do
-  let!(:user){ FactoryGirl.create(:user)}
-  let!(:datafile) {FactoryGirl.create(:datafile)}
-  let!(:metadata) {FactoryGirl.create(:metadata, datafile: datafile)}
+  let!(:user){ FactoryBot.create(:user)}
+  let!(:datafile) {FactoryBot.create(:datafile)}
+  let!(:metadata) {FactoryBot.create(:metadata, datafile: datafile)}
 
   before do
     sign_in_as!(user)

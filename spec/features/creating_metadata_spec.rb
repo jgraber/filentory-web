@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature 'Creating Metadata' do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     sign_in_as!(user)
-    FactoryGirl.create(:datafile, name: "fileA.txt")
+    FactoryBot.create(:datafile, name: "fileA.txt")
 
     visit '/datafiles'
     click_link "fileA.txt"

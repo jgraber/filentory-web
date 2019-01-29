@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature 'Creating Location' do
-  let!(:user){ FactoryGirl.create(:user)}
+  let!(:user){ FactoryBot.create(:user)}
 
   before do
     sign_in_as!(user)
-    FactoryGirl.create(:datastore, name: "DVD 2")
+    FactoryBot.create(:datastore, name: "DVD 2")
 
     visit '/'
     click_link "Datastores"
