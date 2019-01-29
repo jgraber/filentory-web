@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '5.2.2'
 gem 'bootsnap', '~> 1.3', '>= 1.3.2'
 gem 'nokogiri'#, '~> 1.6.8'
-gem 'net-scp', '~> 1.1.2' 
-gem 'net-ssh', '~> 2.6.5'
+gem 'net-scp', '~> 1.2.1' 
+gem 'net-ssh', '~> 5.1.0'
 gem 'sassc', '~> 1.9'
-gem 'pg', '~> 0.18.3'
+gem 'pg', '~> 1.1.4'
 #gem 'sass-rails', '~> 5.0.4'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'#, '~> 4.1.0'
@@ -34,12 +34,11 @@ group :development do
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
-  #gem 'rb-inotify', :require=>false
-  gem 'rb-inotify', '~> 0.9.7', :require=>false
+  gem 'rb-inotify', '~> 0.10.0', :require=>false
   gem 'pry-rails'
-  gem 'rack-mini-profiler', '~> 0.10.1'
-  gem 'capistrano',  '~> 3.4'
-  gem 'capistrano-rails', '~> 1.1.3'
+  gem 'rack-mini-profiler', '~> 1.0.1'
+  gem 'capistrano',  '~> 3.11.0'
+  gem 'capistrano-rails', '~> 1.4.0'
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm',   '~> 0.1', require: false   
   gem 'capistrano-rbenv', '~> 2.0', require: false
