@@ -8,7 +8,7 @@ describe DatastoresController, :type => :controller do
   end
 
   it "displays an error for a missing datastore" do
-    get :show, id: "not-here"   
+    get :show, params: {id: "not-here"}
     expect(response).to redirect_to(datastores_path)
     message = "The datastore you were looking for could not be found."
     expect(flash[:alert]).to eql(message)

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
-gem 'rails', '5.0.7.1'
+gem 'rails', '5.1.6.1'
 gem 'nokogiri'#, '~> 1.6.8'
 gem 'net-scp', '~> 1.1.2' 
 gem 'net-ssh', '~> 2.6.5'
@@ -51,7 +51,7 @@ group :development, :test do
 end
 group :test do
   gem 'capybara'
-  gem 'database_cleaner', '~> 1.5.0'
+  gem 'database_cleaner'#, '~> 1.5.0'
   gem 'email_spec'
   gem 'simplecov', :require => false
 end
