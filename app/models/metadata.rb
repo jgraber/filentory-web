@@ -1,4 +1,4 @@
-class Metadata < ActiveRecord::Base
+class Metadata < ApplicationRecord
   validates :key, :value, presence: true
   belongs_to :datafile
 

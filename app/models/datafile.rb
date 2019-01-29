@@ -1,4 +1,4 @@
-class Datafile < ActiveRecord::Base
+class Datafile < ApplicationRecord
   paginates_per 15
   validates :name, presence: true
 

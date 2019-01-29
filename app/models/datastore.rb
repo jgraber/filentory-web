@@ -1,4 +1,4 @@
-class Datastore < ActiveRecord::Base
+class Datastore < ApplicationRecord
   paginates_per 25
 
   validates :name, presence: true

@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
   paginates_per 15
   validates :name, presence: true
   
