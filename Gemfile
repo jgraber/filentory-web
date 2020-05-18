@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #source 'http://production.cf.rubygems.org'
 #ruby '2.1.2'
-gem 'rails', '5.2.2'
+gem 'rails', '5.2.4.3'
 gem 'bootsnap', '~> 1.3', '>= 1.3.2'
 gem 'nokogiri'#, '~> 1.6.8'
 gem 'net-scp', '~> 1.2.1' 
@@ -42,6 +42,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm',   '~> 0.1', require: false   
   gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'listen'
 end
 group :development, :test do
   gem 'factory_bot_rails'
