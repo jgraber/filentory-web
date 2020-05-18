@@ -21,6 +21,14 @@ implementation, or build an application that is similar, please contact
 me and I’ll add a note to the README so that others can find your work.
 
 
+Testing
+--
+~~~Ruby
+rspec
+~~~
+
+
+
 Deployment
 --
 
