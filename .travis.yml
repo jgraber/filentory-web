@@ -14,11 +14,11 @@ services:
 env:
   - DB=postgresql
 addons:
-  postgresql: "10"
+  postgresql: "12.3"
   apt:
     packages:
-    - postgresql-10
-    - postgresql-client-10
+    - postgresql-12
+    - postgresql-client-12
 env:
   global:
   - PGPORT=5433
@@ -26,8 +26,15 @@ script:
   - RAILS_ENV=test bundle exec rake db:setup --trace
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake
+before_install:
+  - sudo apt-get update
+  - sudo apt-get --yes remove postgresql\*
+  - sudo apt-get install -y postgresql-12 postgresql-client-12
+  - sudo cp /etc/postgresql/{12}/main/pg_hba.conf
+  - sudo service postgresql restart 12 
+  - gem update --system
 before_script:
   - cp config/secrets.yml.travis config/secrets.yml
   - cp config/database.yml.travis config/database.yml
-  - gem update --system
+  - psql --version
   - psql -c 'create database filentoryTEST;' -U postgres
