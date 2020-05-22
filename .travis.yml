@@ -3,11 +3,12 @@ rvm:
   - 2.3.8
   - 2.4.5
   - 2.5.3
-  - 2.6.0
+  - 2.6.6
+  - 2.7.1
 matrix:
   allow_failures:
     - rvm: 2.3.8
-    - rvm: 2.6.0
+    - rvm: 2.4.5
 services:
   - postgresql
 env:
@@ -28,4 +29,5 @@ script:
 before_script:
   - cp config/secrets.yml.travis config/secrets.yml
   - cp config/database.yml.travis config/database.yml
+  - gem update --system
   - psql -c 'create database filentoryTEST;' -U postgres
