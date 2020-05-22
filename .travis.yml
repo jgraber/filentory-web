@@ -8,6 +8,8 @@ matrix:
   allow_failures:
     - rvm: 2.3.8
     - rvm: 2.6.0
+services:
+  - postgresql
 env:
   - DB=postgresql
 addons:
