@@ -1,4 +1,4 @@
-# Preparations
+# Docker set-up for Rails applications
 
 ## 1. Create folder container_db
 `$ mkdir container_db`
