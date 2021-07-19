@@ -4,7 +4,26 @@
 `$ mkdir container_db`
 
 
-## 2. Change database configuration
+
+## 2. Add placeholder file
+
+`$ touch container_db/ignore.txt`
+
+
+
+## 3. Update .gitignore
+
+* add these lines to the .gitignore file:
+
+```
+/container_db/
+!/container_db/ignore.txt
+```
+
+
+
+
+## 4. Change database configuration
 - open config/database.yml
 - replace development entry with this block:
 ```
@@ -24,25 +43,32 @@ development:
 ```
 
 
-## 3. Run docker-compose
+
+## 5. Run docker-compose
 
 `$ docker-compose up`
 
 
-## 4. Restore database
+
+
+## 6. Restore database
 - copy *.dump file to folder container_db
 - connect to database container_db
 - go to mounted directory
-`$ cd /var/lib/postgresql/data`
+  `$ cd /var/lib/postgresql/data`
 - restore database
-`$ psql -U postgres DBNAME < DBNAME.dump`
+  `$ psql -U postgres DBNAME < DBNAME.dump`
 
 
-## 5. Connect to the Rails app
+
+## 7. Connect to the Rails app
+
 - open browser and go to http://127.0.0.1:3000/
 
 
-## 6. Connect VS Code
+
+## 8. Connect VS Code
+
 - open VS Code
 - connect to running container_db
 - select /workspace as current location
